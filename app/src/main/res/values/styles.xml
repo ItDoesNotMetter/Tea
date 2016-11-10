@@ -1,11 +1,125 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+
+    <!--start  addWorker configure -->
+
+    <style name="main_linearLayout_addWorker">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">51sp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">5sp</item>
+    </style>
+
+    <!--end  addWorker configure-->
+
+    <!--start  addTea configure-->
+    <style name="set_textView_imageView_LinearLayout">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+    <!--end  addTea configure-->
+
+    <!--userDefinedView-->
+
+    <!--dialog start-->
+    <style name="dialogView_linearLayout_addWorker">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45sp</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:layout_margin">3sp</item>
+    </style>
+    <!--dialog start-->
+
+    <!--menu-start-->
+
+    <!-- 页面头部 返回按钮配置 -->
+    <style name="menu_button_back" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">50sp</item>
+        <item name="android:layout_width">60sp</item>
+        <item name="android:background">@mipmap/btn_back_menu</item>
+        <item name="android:layout_marginLeft">8sp</item>
+        <item name="android:paddingLeft">8sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+    <!-- menu 操作按钮配置 -->
+    <style name="menu_button_operate" parent="@android:style/TextAppearance.Widget.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_height">50sp</item>
+        <item name="android:layout_width">60sp</item>
+        <item name="android:layout_marginRight">5sp</item>
+        <item name="android:layout_marginLeft">9sp</item>
+        <item name="android:text">操作</item>
+        <item name="android:background">@mipmap/btn_operate_menu</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
+    <!--menu-end-->
+
+    <!--userefinedView-->
+
+
+    <!--start-屏幕适配-->
+    <style name="w_f_h_f">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="w_f_h_m">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="w_f_h_w">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="w_m_h_f">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="w_m_h_m">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="w_m_h_w">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="w_w_h_f">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">fill_parent</item>
+    </style>
+    <style name="w_w_h_m">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    <style name="w_w_h_w">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <!--end 屏幕适配-->
 
 </resources>

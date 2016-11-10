@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/w_m_h_m"
+    android:background="@color/gray"
+    android:orientation="vertical">
+    <RelativeLayout
+        style="@style/w_m_h_w">
+
+        <LinearLayout
+            android:id="@+id/name"
+            style="@style/dialogView_linearLayout_addWorker"
+            android:background="@color/white">
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/view_teacategory"
+                android:layout_marginTop="2dp"/>
+
+            <TextView
+                style="@style/w_w_h_w"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:text="品      名:"
+                android:textSize="25sp" />
+
+            <TextView
+                android:id="@+id/category_textView_dialog_tjcy"
+                style="@style/w_w_h_w"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textSize="25sp" />
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/name"
+            android:layout_marginLeft="48dp"
+            android:background="@color/gray" />
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/price"
+            style="@style/dialogView_linearLayout_addWorker"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginLeft="5dp"
+                android:src="@mipmap/view_unitprice"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_gravity="center"
+                android:text="单价/元:"
+                android:textSize="25sp" />
+            <TextView
+                android:id="@+id/price_textView_dialog_tjcy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:textSize="25sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignBottom="@+id/price"
+            android:layout_marginLeft="48dp"
+
+            android:background="@color/gray" />
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submit_button_dialog_tjcy"
+            style="@style/w_m_h_m"
+            android:layout_weight="1"
+            android:text="保存"
+            android:textSize="22sp"
+            android:textColor="@color/floralwhite"
+            android:background="@drawable/btn_shape_addworker"
+            android:layout_margin="2dp"/>
+
+        <Button
+            android:id="@+id/cancel_button_dialog_tjcy"
+            style="@style/w_m_h_m"
+            android:layout_weight="1"
+            android:textSize="22sp"
+            android:text="取消"
+            android:textColor="@color/floralwhite"
+            android:background="@drawable/btn_shape_addworker"
+            android:layout_margin="2dp"/>
+    </LinearLayout>
+
+</LinearLayout>

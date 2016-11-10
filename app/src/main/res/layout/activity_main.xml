@@ -1,11 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.fengjie.model.MainActivity">
+    style="@style/w_f_h_f"
+    android:orientation="vertical">
+
+    <com.fengjie.model.userdefinedview.Menu
+        android:id="@+id/menu_main"
+        style="@style/w_m_h_w"/>
+
+    <LinearLayout
+        style="@style/w_m_h_m"
+        android:orientation="vertical"
+        android:weightSum="4">
 
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/addWorker_button_main"
+            style="@style/w_m_h_m"
+            android:layout_weight="1"
+            android:background="@color/magenta"
+            android:src="@mipmap/btn_addworker_main"/>
+
+        <ImageButton
+            android:id="@+id/addTea_button_main"
+            style="@style/w_m_h_m"
+            android:layout_weight="1"
+            android:background="@color/darkviolet"
+            android:src="@mipmap/btn_addtea_main"/>
+
+
+        <ImageButton
+            android:id="@+id/enteringWorkInformation_button_main"
+            style="@style/w_m_h_m"
+            android:layout_weight="1.0"
+            android:background="@color/goldenrod"
+            android:src="@mipmap/btn_enterworkinfo_main"/>
+
+
+        <ImageButton
+            android:id="@+id/statisticalInfo_button_main"
+            style="@style/w_m_h_m"
+            android:layout_weight="1.0"
+            android:background="@color/color_statisticalInfo"
+            android:src="@mipmap/btn_statisticalinfo_main"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>

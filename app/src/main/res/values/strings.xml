@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Model</string>
+
+    <!--start Activity名称-->
+    <string name="app_name">采茶助手</string>
+    <string name="addWorkerActivity">addWorkerActivity</string>
+    <string name="addTeaActivity">addTeaActivity</string>
+    <!--end Activity名称-->
+
 </resources>

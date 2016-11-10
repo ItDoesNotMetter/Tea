@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/w_m_h_m"
+    android:background="@color/gray">
+
+    <com.fengjie.model.userdefinedview.Menu
+        android:id="@+id/menu_addTea"
+        style="@style/w_m_h_w"/>
+
+
+    <com.fengjie.model.userdefinedview.NoScrollViewPager
+        android:id="@+id/viewPager_tjcy"
+        style="@style/w_m_h_m"
+        android:layout_below="@+id/menu_addTea"
+        android:layout_above="@+id/bottomButton_addTea"/>
+
+    <com.fengjie.model.userdefinedview.CustomBottomButton
+        android:id="@+id/bottomButton_addTea"
+        style="@style/w_m_h_w"
+        android:layout_below="@+id/linearLayout2_addWorker"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

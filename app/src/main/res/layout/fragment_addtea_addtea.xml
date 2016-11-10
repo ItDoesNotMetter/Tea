@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             style="@style/w_m_h_m">
+    <LinearLayout
+        style="@style/w_m_h_m"
+        android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/linearLayout1_tjcy"
+            style="@style/w_m_h_w"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/main_linearLayout_addWorker">
+                <ImageView
+                    android:layout_width="35sp"
+                    android:layout_height="35sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:src="@mipmap/view_teacategory"/>
+                <TextView
+                    style="@style/w_w_h_w"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:gravity="center_vertical"
+                    android:text="品名:"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"/>
+
+                <EditText
+                    android:id="@+id/variety_EditText_tjcy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:hint="填写品名"
+                    android:singleLine="true"
+                    android:textSize="24sp"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/main_linearLayout_addWorker">
+                <ImageView
+                    android:layout_width="35sp"
+                    android:layout_height="35sp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:src="@mipmap/view_unitprice"/>
+                <TextView
+                    style="@style/w_w_h_w"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="5sp"
+                    android:gravity="center_vertical"
+                    android:text="单价/元:"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"/>
+
+                <!--调用方法只能输入手机号码-->
+                <EditText
+                    android:id="@+id/price_EditText_tjcy"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:hint="填写单价"
+                    android:phoneNumber="true"
+                    android:singleLine="true"
+                    android:textSize="24sp"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2_addWorker"
+            style="@style/w_m_h_m"
+            android:layout_marginTop="20sp"
+            android:orientation="vertical"
+            android:padding="10sp">
+
+            <Button
+                android:id="@+id/submit_button_tjcy"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:layout_marginBottom="20sp"
+                android:layout_marginTop="55sp"
+                android:background="@drawable/btn_shape_addtea"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+            <Button
+                android:id="@+id/cancel_button_tjcy"
+                android:layout_width="match_parent"
+                android:layout_height="50sp"
+                android:background="@drawable/btn_shape_addtea"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="取消"
+                android:textColor="@color/white"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

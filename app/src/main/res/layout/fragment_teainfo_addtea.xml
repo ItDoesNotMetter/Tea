@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             style="@style/w_m_h_m"
+             android:background="@color/gray">
+
+    <RelativeLayout style="@style/w_m_h_m">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/fragment_recyclerView_addTea"
+            style="@style/w_m_h_m">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </RelativeLayout>
+
+</FrameLayout>

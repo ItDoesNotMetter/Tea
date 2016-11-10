@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/item_shape"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/set_textView_imageView_LinearLayout"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/teaCategory_textview_teaInfo_tjcy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="龙井茶"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/price_textview_teaInfo_tjcy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/unitPrice_textview_teaInfo_tjcy"
+            android:text="59"
+            android:textSize="22sp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/price_textview_teaInfo_tjcy"
+            android:text="元/斤"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/unitPrice_textview_teaInfo_tjcy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="95dp"
+            android:text="单价:"
+            android:textSize="22sp"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical">
+
+        <LinearLayout style="@style/set_textView_imageView_LinearLayout">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="添加日期:"
+                android:textSize="20sp"/>
+            <TextView
+                android:id="@+id/addDate_textview_teaInfo_tjcy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="10"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

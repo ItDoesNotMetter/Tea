@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="45sp"
+              android:layout_alignParentBottom="true"
+              android:layout_alignParentLeft="true"
+              android:layout_alignParentStart="true"
+              android:padding="5sp">
+
+    <Button
+        android:id="@+id/left_button_bottomButton_moudule"
+        style="@style/w_m_h_m"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        android:text="左边按钮"
+        android:textSize="18sp"/>
+
+
+    <Button
+        android:id="@+id/right_button_bottomButton_moudule"
+        style="@style/w_m_h_m"
+        android:layout_marginLeft="5sp"
+        android:layout_weight="1"
+        android:background="#953399ff"
+        android:text="右边按钮"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/moreFunction_button_bottomButton_moudule"
+        style="@style/w_m_h_m"
+        android:layout_marginLeft="5sp"
+        android:layout_weight="1"
+        android:background="@color/gray"
+        android:text="MoreFunction"
+        android:textSize="18sp"
+        android:visibility="gone"/>
+
+</LinearLayout>
