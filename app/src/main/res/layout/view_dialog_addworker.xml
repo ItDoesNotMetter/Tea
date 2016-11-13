@@ -6,15 +6,11 @@
 
     <LinearLayout
         android:id="@+id/name"
-        style="@style/dialogView_linearLayout_addWorker"
+        style="@style/dialogView_linearLayout_common"
         android:background="@color/white">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
-            android:src="@mipmap/view_name"/>
+            style="@style/ic_imageView_common"
+            android:src="@mipmap/iv_name"/>
 
         <TextView
             style="@style/w_w_h_w"
@@ -34,14 +30,11 @@
 
     <LinearLayout
         android:id="@+id/uid"
-        style="@style/dialogView_linearLayout_addWorker"
+        style="@style/dialogView_linearLayout_common"
         android:background="@color/white">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:src="@mipmap/view_number"/>
+            style="@style/ic_imageView_common"
+            android:src="@mipmap/iv_number"/>
         <TextView
             style="@style/w_w_h_w"
             android:layout_gravity="center"
@@ -56,25 +49,16 @@
             android:textSize="25sp"/>
     </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_alignBottom="@+id/uid"
-        android:layout_marginLeft="48dp"
-        android:background="@color/gray"/>
 
 
     <LinearLayout
         android:id="@+id/price"
-        style="@style/dialogView_linearLayout_addWorker"
+        style="@style/dialogView_linearLayout_common"
         android:background="@color/white">
 
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:src="@mipmap/view_unitprice"/>
+            style="@style/ic_imageView_common"
+            android:src="@mipmap/iv_unitprice"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -93,14 +77,11 @@
 
     <LinearLayout
         android:id="@+id/weight"
-        style="@style/dialogView_linearLayout_addWorker"
+        style="@style/dialogView_linearLayout_common"
         android:background="@color/white">
         <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:src="@mipmap/view_settledate"/>
+            style="@style/ic_imageView_common"
+            android:src="@mipmap/iv_settledate"/>
 
         <TextView
             style="@style/w_w_h_w"

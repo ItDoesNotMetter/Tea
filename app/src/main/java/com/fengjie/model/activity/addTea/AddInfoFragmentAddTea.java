@@ -64,7 +64,8 @@ public class AddInfoFragmentAddTea extends Fragment
 
 //        EventBus.getDefault().register(this);       //订阅事件
 
-        view = LayoutInflater.from(mContext).inflate(R.layout.fragment_addtea_addtea, null);
+//        view = LayoutInflater.from(mContext).inflate(R.layout.fragment_addtea_addtea, null);
+        view = inflater.inflate(R.layout.fragment_addtea_addtea, container,false);
         findView();
         initDialag();
 
@@ -75,11 +76,11 @@ public class AddInfoFragmentAddTea extends Fragment
      */
     private void findView() {
 
-        variety_EditText_tjcy = (EditText ) view.findViewById(R.id.variety_EditText_tjcy);
-        price_EditText_tjcy = (EditText ) view.findViewById(R.id.price_EditText_tjcy);
+        variety_EditText_tjcy = (EditText ) view.findViewById(R.id.category_EditText_addTea);
+        price_EditText_tjcy = (EditText ) view.findViewById(R.id.price_EditText_addTea);
 
-        submit_button_tjcy=(Button ) view.findViewById(R.id.submit_button_tjcy);
-        cancel_button_tjcy=(Button ) view.findViewById(R.id.cancel_button_tjcy);
+        submit_button_tjcy=(Button ) view.findViewById(R.id.submit_button_addTea);
+        cancel_button_tjcy=(Button ) view.findViewById(R.id.cancel_button_addTea);
         submit_button_tjcy.setOnClickListener(new mButtonListener());
         cancel_button_tjcy.setOnClickListener(new mButtonListener());
 
@@ -127,7 +128,7 @@ public class AddInfoFragmentAddTea extends Fragment
     private class mButtonListener implements View.OnClickListener{
         public void onClick(View v){
             switch(v.getId()){
-                case R.id.submit_button_tjcy:
+                case R.id.submit_button_addTea:
                     if(variety_EditText_tjcy.getText().toString().equals("")||price_EditText_tjcy.getText().toString().equals("")){
                         Toast.makeText(mContext,"名字或者价格为空,录入失败!", Toast.LENGTH_SHORT).show();
                     }
@@ -145,7 +146,7 @@ public class AddInfoFragmentAddTea extends Fragment
                         mCustomDialog.show();
                     }
                     break;
-                case R.id.cancel_button_tjcy:
+                case R.id.cancel_button_addTea:
                     if(!variety_EditText_tjcy.getText().toString().equals("")||!price_EditText_tjcy.getText().toString().equals(""))
                         promptExit();
                     else

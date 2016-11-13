@@ -1,0 +1,164 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              style="@style/w_m_h_m"
+              android:layout_margin="2sp"
+              android:background="@color/gray"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout1_inputWorkload"
+        style="@style/w_m_h_w"
+         android:orientation="vertical">
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_name"/>
+
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="姓名:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <TextView
+                android:id="@+id/name_textView_dialog_inputWorkload"
+                style="@style/w_m_h_m"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_category"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="品名:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+            <TextView
+                android:id="@+id/category_textView_dialog_inputWorkload"
+                style="@style/w_m_h_m"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_unitprice"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="单价:"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+            />
+
+            <!--调用方法只能输入手机号码-->
+            <TextView
+                android:id="@+id/unitPrice_textView_dialog_inputWorkload"
+                style="@style/w_m_h_m"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_weight"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="数量/斤:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <!--调用方法只能输入手机号码-->
+            <TextView
+                android:id="@+id/weight_textView_dialog_inputWorkload"
+                style= "@style/w_m_h_m"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:textSize="24sp"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_money"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="金额/元:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <!--调用方法只能输入手机号码-->
+            <TextView
+                android:id="@+id/money_textView_dialog_inputWorkload"
+                style="@style/w_m_h_m"
+                android:background="@color/white"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/w_m_h_w"
+        android:layout_margin="5sp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/submit_button_dialog_inputWorkload"
+            style="@style/w_m_h_m"
+            android:layout_marginRight="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:text="保存"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"/>
+
+        <Button
+            android:id="@+id/cancel_button_dialog_inputWorkload"
+            style="@style/w_m_h_m"
+            android:layout_marginLeft="5sp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:text="取消"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

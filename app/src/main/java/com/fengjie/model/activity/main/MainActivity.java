@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import com.fengjie.model.R;
 import com.fengjie.model.activity.addTea.AddTeaActivity;
 import com.fengjie.model.activity.addWorker.AddWorkerActivity;
+import com.fengjie.model.activity.inputWorkload.InputWorkload;
 import com.fengjie.model.userdefinedview.Menu;
 import com.zhy.autolayout.AutoLayoutActivity;
 
@@ -30,8 +31,8 @@ public class MainActivity extends AutoLayoutActivity
 	{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		ButterKnife.bind(this);             //bind this activity.
-		initMenu();                         //init top menu.
+		ButterKnife.bind(this);                 //bind this activity.
+		initMenu();                             //init top menu.
 	}
 
 	private void initMenu ()
@@ -52,7 +53,7 @@ public class MainActivity extends AutoLayoutActivity
 
 	}
 
-	@OnClick ( { R.id.addWorker_button_main, R.id.addTea_button_main } )
+	@OnClick ( { R.id.addWorker_button_main, R.id.addTea_button_main ,R.id.inputWorkload_button_main} )
 	protected void OnClick ( View view )
 	{
 		Intent intent = new Intent();
@@ -64,19 +65,13 @@ public class MainActivity extends AutoLayoutActivity
 			case R.id.addTea_button_main:
 				intent.setClass(MainActivity.this, AddTeaActivity.class);
 				break;
+			case R.id.inputWorkload_button_main:
+				intent.setClass(MainActivity.this, InputWorkload.class);
+				break;
 			default:
 				return; //other situation exit this method , not intent.
 		}
 		startActivity(intent);
 	}
-
-//    @OnClick({R.id.AA,R.id.BB})
-//    public void onClick(View view) {
-//        switch (view.getId()){
-//            case R.id:
-//                break;
-//            default:break;
-//        }
-//    }
 
 }

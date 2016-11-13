@@ -10,13 +10,13 @@
             android:orientation="vertical">
 
             <LinearLayout
-                style="@style/main_linearLayout_addWorker">
+                style="@style/line_linearLayout_common">
                 <ImageView
                     android:layout_width="35sp"
                     android:layout_height="35sp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5sp"
-                    android:src="@mipmap/view_teacategory"/>
+                    android:src="@mipmap/iv_category"/>
                 <TextView
                     style="@style/w_w_h_w"
                     android:layout_gravity="center"
@@ -27,7 +27,7 @@
                     android:textSize="24sp"/>
 
                 <EditText
-                    android:id="@+id/variety_EditText_tjcy"
+                    android:id="@+id/category_EditText_addTea"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -39,13 +39,13 @@
 
 
             <LinearLayout
-                style="@style/main_linearLayout_addWorker">
+                style="@style/line_linearLayout_common">
                 <ImageView
                     android:layout_width="35sp"
                     android:layout_height="35sp"
                     android:layout_gravity="center"
                     android:layout_marginLeft="5sp"
-                    android:src="@mipmap/view_unitprice"/>
+                    android:src="@mipmap/iv_unitprice"/>
                 <TextView
                     style="@style/w_w_h_w"
                     android:layout_gravity="center"
@@ -57,7 +57,7 @@
 
                 <!--调用方法只能输入手机号码-->
                 <EditText
-                    android:id="@+id/price_EditText_tjcy"
+                    android:id="@+id/price_EditText_addTea"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/white"
@@ -79,7 +79,7 @@
             android:padding="10sp">
 
             <Button
-                android:id="@+id/submit_button_tjcy"
+                android:id="@+id/submit_button_addTea"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:layout_marginBottom="20sp"
@@ -91,7 +91,7 @@
                 android:textSize="24sp"/>
 
             <Button
-                android:id="@+id/cancel_button_tjcy"
+                android:id="@+id/cancel_button_addTea"
                 android:layout_width="match_parent"
                 android:layout_height="50sp"
                 android:background="@drawable/btn_shape_addtea"

@@ -57,7 +57,7 @@ public class AddTeaActivity extends AutoLayoutActivity
 	 */
 	private void initMenu ()
 	{
-		menu = ( Menu ) findViewById(R.id.menu_addTea);
+		menu = ( Menu ) findViewById(R.id.menu_view_addTea);
 		menu.setBackgroundResource(R.color.color_addTeaLayout);
 		menu.setTitle_textView_menu("添加茶叶");
 		menu.setRightButtonVisibility(false);        //隐藏右边按钮

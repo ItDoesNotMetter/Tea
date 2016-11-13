@@ -4,14 +4,14 @@
     android:background="@color/gray">
 
     <com.fengjie.model.userdefinedview.Menu
-        android:id="@+id/menu_addTea"
+        android:id="@+id/menu_view_addTea"
         style="@style/w_m_h_w"/>
 
 
     <com.fengjie.model.userdefinedview.NoScrollViewPager
         android:id="@+id/viewPager_tjcy"
         style="@style/w_m_h_m"
-        android:layout_below="@+id/menu_addTea"
+        android:layout_below="@+id/menu_view_addTea"
         android:layout_above="@+id/bottomButton_addTea"/>
 
     <com.fengjie.model.userdefinedview.CustomBottomButton

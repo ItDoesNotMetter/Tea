@@ -125,7 +125,7 @@ public class TeaDBUtil
      * @param teaInfo
      * @return
      */
-    public int UpdateTeaUseCategory(TeaInfo teaInfo)
+    public int updateTeaUseCategory ( TeaInfo teaInfo)
     {
         if((database.query(TB_TEA_INFO,null,TEA_CATEGORY+"==?",new String[]{teaInfo.getTea_Category()},null,null,null)).moveToFirst())
         {

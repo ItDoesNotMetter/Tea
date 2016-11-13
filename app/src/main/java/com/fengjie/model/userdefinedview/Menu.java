@@ -143,7 +143,7 @@ public class Menu extends LinearLayout
 
 		mPopupWindow.setHeight(( listView.getMeasuredHeight() ) + 90
 				                                                          * NUM_OF_VISIBLE_LIST_ROWS);
-
+		mPopupWindow.setAnimationStyle(R.style.popwin_anim_style);  //设置动画
 		//控制popupwindow点击屏幕其他地方消失
 //        mPopupWindow.setBackgroundDrawable(this.getResources().getDrawable(
 //                R.mipmap.bg_popupwindow));// 设置背景图片，不能在布局中设置，要通过代码来设置
@@ -151,6 +151,16 @@ public class Menu extends LinearLayout
 				R.drawable.bg_touming_menu));// 设置背景图片，不能在布局中设置，要通过代码来设置
 		mPopupWindow.setOutsideTouchable(true);// 触摸popupwindow外部，popupwindow消失。这个要求你的popupwindow要有背景图片才可以成功，如上
 
+//		int[] location = new int[2];
+//		v.getLocationOnScreen(location);
+		/**在控件下方*/
+//		popupWindow.showAsDropDown(v);
+		/**在控件上方*/
+		//popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, location[0], location[1]-popupWindow.getHeight());
+		/**在控件左方*/
+//		popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, location[0]-popupWindow.getWidth(), location[1]);
+		/**在控件右方*/
+//		popupWindow.showAtLocation(v, Gravity.NO_GRAVITY, location[0]+v.getWidth(), location[1]);
 		// 更多操作按钮
 
 		operate_imageButton_menu.setOnClickListener(new oldOnClickListener());
@@ -257,6 +267,9 @@ public class Menu extends LinearLayout
 			back_button_menu.setOnClickListener(newOnClickListener);    //建立新的监听事件
 	}
 
+	/**
+	 * open/close menu method
+	 */
 	private class oldOnClickListener implements View.OnClickListener
 	{
 
@@ -268,7 +281,7 @@ public class Menu extends LinearLayout
 	}
 
 	/**
-	 * 关闭方法
+	 * open/close menu method
 	 */
 	public void close ()
 	{

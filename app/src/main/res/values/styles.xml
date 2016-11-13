@@ -8,10 +8,21 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--start activity common use configure-->
+
+    <style name="ic_imageView_common">
+        <item name="android:layout_width">35sp</item>
+        <item name="android:layout_height">35sp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_marginLeft">5sp</item>
+    </style>
+
+    <!--end activity common use configure-->
+
 
     <!--start  addWorker configure -->
 
-    <style name="main_linearLayout_addWorker">
+    <style name="line_linearLayout_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">51sp</item>
         <item name="android:orientation">horizontal</item>
@@ -33,7 +44,7 @@
     <!--userDefinedView-->
 
     <!--dialog start-->
-    <style name="dialogView_linearLayout_addWorker">
+    <style name="dialogView_linearLayout_common">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">45sp</item>
         <item name="android:orientation">horizontal</item>
@@ -74,6 +85,11 @@
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_alignParentBottom">true</item>
         <item name="android:layout_alignParentEnd">true</item>
+    </style>
+
+    <style name="popwin_anim_style">
+        <item name="android:windowEnterAnimation">@anim/menu_show</item>
+        <item name="android:windowExitAnimation">@anim/menu_hide</item>
     </style>
 
     <!--menu-end-->

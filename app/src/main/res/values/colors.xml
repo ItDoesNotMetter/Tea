@@ -8,7 +8,7 @@
     <!--界面颜色在此定义 颜色命名规则 组件名字(用途)_color_界面拼音  例如   操作按钮  operate_color_jz-->
     <color name="color_addWorkerLayout">#ec4198</color><!--紫色 -->
     <color name="color_addTeaLayout">#bd77e1</color>
-    <color name="color_enterWorkInfo">#daa520</color><!--金麒麟色 -->
+    <color name="color_inputWorkloadLayout">#daa520</color><!--金麒麟色 -->
     <color name="color_gl">#00bfff</color><!--深天蓝色 -->
     <color name="color_jz">#e38e34</color>
     <color name="color_statisticalInfo">#fa8072</color>

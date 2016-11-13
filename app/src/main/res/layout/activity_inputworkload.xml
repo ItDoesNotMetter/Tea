@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/w_m_h_m"
+    android:background="@color/gray">
+
+    <com.fengjie.model.userdefinedview.Menu
+        android:id="@+id/menu_view_inputWorkload"
+        style="@style/w_m_h_w"/>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2_inputWorkload"
+        style="@style/w_m_h_m"
+        android:layout_below="@+id/linearLayout1_inputWorkload"
+        android:orientation="vertical"
+        android:padding="10sp">
+        <Button
+            android:id="@+id/print_button_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:layout_marginBottom="20sp"
+            android:layout_marginTop="35sp"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="打印"
+            android:textColor="@color/floralwhite"
+            android:textSize="24sp"/>
+        <Button
+            android:id="@+id/cancel_button_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="取消"
+            android:textColor="@color/floralwhite"
+            android:textSize="24sp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1_inputWorkload"
+        style="@style/w_m_h_w"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/menu_view_inputWorkload" android:orientation="vertical">
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_name"/>
+
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="姓名:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <EditText
+                android:id="@+id/name_EditText_inputWorkload"
+                style="@style/w_m_h_m"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:hint="请输入编号"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+            <ImageView
+                android:id="@+id/name_imageView_inputWorkload"
+                android:layout_width="30sp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/iv_unselected_dropdownwindow"/>
+            <TextView
+                android:layout_width="55sp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="200个"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_category"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="品名:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+            <EditText
+                android:id="@+id/category_EditText_inputWorkload"
+                style="@style/w_m_h_m"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:hint="请输入编号"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+            <ImageView
+                android:id="@+id/category_imageView_inputWorkload"
+                android:layout_width="30sp"
+                android:layout_height="match_parent"
+                android:src="@mipmap/iv_unselected_dropdownwindow"/>
+            <TextView
+                android:layout_width="55sp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="200种"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_unitprice"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="单价:"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+            />
+
+            <!--调用方法只能输入手机号码-->
+            <EditText
+                android:id="@+id/unitPrice_EditText_inputWorkload"
+                style="@style/w_m_h_m"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:hint="无"
+                android:maxLength="11"
+                android:phoneNumber="true"
+                android:singleLine="true"
+                android:textSize="24sp"
+                android:enabled="false"/>
+            <Button
+                android:layout_width="58sp"
+                android:layout_height="match_parent"
+                android:layout_margin="2sp"
+                android:background="@color/color_inputWorkloadLayout"
+                android:text="更改"
+                android:textColor="@color/white"
+                android:textSize="21sp"/>
+
+            <Button
+                android:layout_width="58sp"
+                android:layout_height="match_parent"
+                android:layout_margin="2sp"
+                android:background="@color/color_inputWorkloadLayout"
+                android:text="保存"
+                android:textColor="@color/white"
+                android:textSize="21sp"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_weight"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="数量/斤:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <!--调用方法只能输入手机号码-->
+            <EditText
+                android:id="@+id/weight_EditText_inputWorkload"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:hint="无"
+                android:maxLength="18"
+                android:singleLine="true"
+                android:textSize="24sp"
+            />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/line_linearLayout_common">
+            <ImageView
+                style="@style/ic_imageView_common"
+                android:src="@mipmap/iv_money"/>
+            <TextView
+                style="@style/w_w_h_m"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5sp"
+                android:gravity="center_vertical"
+                android:text="金额/元:"
+                android:textColor="@color/black"
+                android:textSize="24sp"/>
+
+            <!--调用方法只能输入手机号码-->
+            <EditText
+                android:id="@+id/money_EditText_inputWorkload"
+                style="@style/w_m_h_m"
+                android:background="@color/white"
+                android:hint="无"
+                android:singleLine="true"
+                android:textSize="24sp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

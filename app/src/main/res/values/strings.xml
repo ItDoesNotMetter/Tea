@@ -4,6 +4,7 @@
     <string name="app_name">采茶助手</string>
     <string name="addWorkerActivity">addWorkerActivity</string>
     <string name="addTeaActivity">addTeaActivity</string>
+    <string name="inputWorkloadActivity">inputWorkloadActivity</string>
     <!--end Activity名称-->
 
 </resources>

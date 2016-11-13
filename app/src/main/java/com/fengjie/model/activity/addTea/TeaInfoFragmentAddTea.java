@@ -233,7 +233,7 @@ public class TeaInfoFragmentAddTea extends Fragment
 //			{
 //				TeaInfo teaInfo = new TeaInfo(teaCategory,      //通过种类更新
 //						                             Float.parseFloat(( ( EditText ) view.findViewById(R.id.price_dialog_teaInfo) ).getText().toString()));    //取编辑框中单价
-//				if ( teaDBUtil.UpdateTeaUseCategory(teaInfo) != 0 )
+//				if ( teaDBUtil.updateTeaUseCategory(teaInfo) != 0 )
 //				{
 //					Toast.makeText(mContext, "更新茶叶价格成功", Toast.LENGTH_SHORT).show();
 ////                    adapter.updateListView(SourceDateList=teaDBUtil.seleteAllTea());

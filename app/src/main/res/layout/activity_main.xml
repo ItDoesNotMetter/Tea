@@ -11,12 +11,14 @@
     <LinearLayout
         style="@style/w_m_h_m"
         android:orientation="vertical"
-        android:weightSum="4">
+        android:weightSum="4"
+    >
 
 
         <ImageButton
             android:id="@+id/addWorker_button_main"
             style="@style/w_m_h_m"
+            android:layout_margin="8sp"
             android:layout_weight="1"
             android:background="@color/magenta"
             android:src="@mipmap/btn_addworker_main"/>
@@ -24,14 +26,16 @@
         <ImageButton
             android:id="@+id/addTea_button_main"
             style="@style/w_m_h_m"
+            android:layout_margin="8sp"
             android:layout_weight="1"
             android:background="@color/darkviolet"
             android:src="@mipmap/btn_addtea_main"/>
 
 
         <ImageButton
-            android:id="@+id/enteringWorkInformation_button_main"
+            android:id="@+id/inputWorkload_button_main"
             style="@style/w_m_h_m"
+            android:layout_margin="8sp"
             android:layout_weight="1.0"
             android:background="@color/goldenrod"
             android:src="@mipmap/btn_enterworkinfo_main"/>
@@ -40,6 +44,7 @@
         <ImageButton
             android:id="@+id/statisticalInfo_button_main"
             style="@style/w_m_h_m"
+            android:layout_margin="8sp"
             android:layout_weight="1.0"
             android:background="@color/color_statisticalInfo"
             android:src="@mipmap/btn_statisticalinfo_main"/>

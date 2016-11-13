@@ -17,7 +17,7 @@
         android:layout_below="@+id/menu_addWorker"
         android:orientation="vertical">
         <LinearLayout
-            style="@style/main_linearLayout_addWorker">
+            style="@style/line_linearLayout_common">
 
             <ImageView
                 android:layout_width="35sp"
@@ -25,7 +25,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="5sp"
                 android:layout_marginTop="2sp"
-                android:src="@mipmap/view_name"/>
+                android:src="@mipmap/iv_name"/>
 
             <TextView
                 style="@style/w_w_h_w"
@@ -47,13 +47,13 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/main_linearLayout_addWorker">
+            style="@style/line_linearLayout_common">
             <ImageView
                 android:layout_width="35sp"
                 android:layout_height="35sp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5sp"
-                android:src="@mipmap/view_number"/>
+                android:src="@mipmap/iv_number"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
@@ -86,13 +86,13 @@
 
 
         <LinearLayout
-            style="@style/main_linearLayout_addWorker">
+            style="@style/line_linearLayout_common">
             <ImageView
                 android:layout_width="35sp"
                 android:layout_height="35sp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5sp"
-                android:src="@mipmap/view_unitprice"/>
+                android:src="@mipmap/iv_unitprice"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
@@ -117,13 +117,13 @@
         </LinearLayout>
 
         <LinearLayout
-            style="@style/main_linearLayout_addWorker">
+            style="@style/line_linearLayout_common">
             <ImageView
                 android:layout_width="35sp"
                 android:layout_height="35sp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="5sp"
-                android:src="@mipmap/view_settledate"/>
+                android:src="@mipmap/iv_settledate"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
