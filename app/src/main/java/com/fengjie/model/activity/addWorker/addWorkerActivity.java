@@ -3,6 +3,7 @@ package com.fengjie.model.activity.addWorker;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
@@ -18,7 +19,6 @@ import com.fengjie.model.activity.addWorker.view.IAddWorkerView;
 import com.fengjie.model.dbhelper.Staff.StaffInfo;
 import com.fengjie.model.userdefinedview.CustomDialog;
 import com.fengjie.model.userdefinedview.Menu;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,7 +30,7 @@ import butterknife.OnClick;
  * @attention
  */
 
-public class AddWorkerActivity extends AutoLayoutActivity implements IAddWorkerView
+public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerView
 {
 	/*** Widget */
 	@BindView ( R.id.name_EditText_addWorker )

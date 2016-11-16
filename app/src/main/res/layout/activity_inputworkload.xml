@@ -1,185 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.fengjie.percentlibrary.PercentLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/w_m_h_m"
-    android:background="@color/gray">
+    android:background="@color/gray"
+    android:orientation="vertical"
+    app:layout_heightPercent="100%w"
+    app:layout_widthPercent="100%w">
+
+    <!--app:layout_heightPercent="100%w"-->
+    <!--app:layout_widthPercent="100%w"-->
+    <!--app:layout_marginPercent="1%w"-->
+    <!--app:layout_marginRightPercent="1%w"-->
+    <!--app:layout_marginLeftPercent="1%w"-->
+    <!--app:layout_marginTopPercent="1%w"-->
+    <!--app:layout_marginBottomPercent="1%w"-->
+
 
     <com.fengjie.model.userdefinedview.Menu
         android:id="@+id/menu_view_inputWorkload"
-        style="@style/w_m_h_w"/>
+        style="@style/w_0_h_0"
+        app:layout_heightPercent="15%w"
+        app:layout_widthPercent="100%w"/>
 
-    <LinearLayout
-        android:id="@+id/linearLayout2_inputWorkload"
-        style="@style/w_m_h_m"
-        android:layout_below="@+id/linearLayout1_inputWorkload"
-        android:orientation="vertical"
-        android:padding="10sp">
-        <Button
-            android:id="@+id/print_button_inputWorkload"
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:layout_marginBottom="20sp"
-            android:layout_marginTop="35sp"
-            android:background="@drawable/btn_shape_inputworkload"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="打印"
-            android:textColor="@color/floralwhite"
-            android:textSize="24sp"/>
-        <Button
-            android:id="@+id/cancel_button_inputWorkload"
-            android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:background="@drawable/btn_shape_inputworkload"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="取消"
-            android:textColor="@color/floralwhite"
-            android:textSize="24sp"/>
 
-    </LinearLayout>
+    <com.fengjie.percentlibrary.PercentRelativeLayout style="@style/w_0_h_0"
+                                                      app:layout_heightPercent="85%w"
+                                                      app:layout_widthPercent="100%w">
 
-    <LinearLayout
-        android:id="@+id/linearLayout1_inputWorkload"
-        style="@style/w_m_h_w"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/menu_view_inputWorkload" android:orientation="vertical">
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout1_inputWorkload" android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginTopPercent="1%w"
+            app:layout_widthPercent="25%w">
 
             <ImageView
+                android:id="@+id/name_iv"
                 style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_name"/>
 
             <TextView
-                style="@style/w_w_h_m"
+                android:id="@+id/name_tx"
+                style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
                 android:gravity="center_vertical"
-                android:text="姓名:"
-                android:textColor="@color/black"
+                android:text="姓名:" android:textColor="@color/black"
                 android:textSize="24sp"/>
 
-            <EditText
-                android:id="@+id/name_EditText_inputWorkload"
-                style="@style/w_m_h_m"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:hint="请输入编号"
-                android:singleLine="true"
-                android:textSize="24sp"/>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout2_inputWorkload" android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_below="@+id/linearLayout1_inputWorkload"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginTopPercent="1%w"
+            app:layout_widthPercent="25%w">
             <ImageView
-                android:id="@+id/name_imageView_inputWorkload"
-                android:layout_width="30sp"
-                android:layout_height="match_parent"
-                android:src="@mipmap/iv_unselected_dropdownwindow"/>
-            <TextView
-                android:layout_width="55sp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="200个"
-                android:textSize="18sp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/line_linearLayout_common">
-            <ImageView
+                android:id="@+id/teaCategory_iv"
                 style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_category"/>
+
             <TextView
-                style="@style/w_w_h_m"
+                android:id="@+id/teaCategory_tv"
+                style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="0dp"
                 android:gravity="center_vertical"
-                android:text="品名:"
-                android:textColor="@color/black"
-                android:textSize="24sp"/>
-            <EditText
-                android:id="@+id/category_EditText_inputWorkload"
-                style="@style/w_m_h_m"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:hint="请输入编号"
-                android:singleLine="true"
-                android:textSize="24sp"/>
-            <ImageView
-                android:id="@+id/category_imageView_inputWorkload"
-                android:layout_width="30sp"
-                android:layout_height="match_parent"
-                android:src="@mipmap/iv_unselected_dropdownwindow"/>
-            <TextView
-                android:layout_width="55sp"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="200种"
-                android:textSize="18sp"/>
+                android:text="品类:" android:textColor="@color/black"
+                android:textSize="22sp"/>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        </LinearLayout>
-
-
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout3_inputWorkload" android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/linearLayout2_inputWorkload"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_unitprice"/>
             <TextView
                 style="@style/w_w_h_m"
                 android:layout_gravity="center"
-
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="0dp"
                 android:gravity="center_vertical"
                 android:text="单价:"
                 android:textColor="@color/black"
-                android:textSize="24sp"
-            />
+                android:textSize="22sp"/>
 
-            <!--调用方法只能输入手机号码-->
             <EditText
                 android:id="@+id/unitPrice_EditText_inputWorkload"
                 style="@style/w_m_h_m"
                 android:layout_weight="1"
                 android:background="@color/white"
+                android:enabled="false"
                 android:hint="无"
                 android:maxLength="11"
                 android:phoneNumber="true"
                 android:singleLine="true"
-                android:textSize="24sp"
-                android:enabled="false"/>
+                android:textSize="22sp"/>
             <Button
-                android:layout_width="58sp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2sp"
                 android:background="@color/color_inputWorkloadLayout"
                 android:text="更改"
                 android:textColor="@color/white"
-                android:textSize="21sp"/>
+                android:textSize="22sp"
+                app:layout_marginRightPercent="1%w"
+                app:layout_widthPercent="15%w"/>
 
             <Button
-                android:layout_width="58sp"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="2sp"
                 android:background="@color/color_inputWorkloadLayout"
                 android:text="保存"
                 android:textColor="@color/white"
-                android:textSize="21sp"/>
+                android:textSize="22sp"
+                app:layout_widthPercent="15%w"/>
 
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout4_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/linearLayout3_inputWorkload"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_weight"/>
             <TextView
                 style="@style/w_w_h_m"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="0dp"
                 android:gravity="center_vertical"
                 android:text="数量/斤:"
                 android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="22sp"/>
 
             <!--调用方法只能输入手机号码-->
             <EditText
@@ -190,24 +166,33 @@
                 android:hint="无"
                 android:maxLength="18"
                 android:singleLine="true"
-                android:textSize="24sp"
+                android:textSize="22sp"
             />
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout5_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/linearLayout4_inputWorkload"
+            android:background="@color/white"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_money"/>
             <TextView
                 style="@style/w_w_h_m"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="0dp"
                 android:gravity="center_vertical"
                 android:text="金额/元:"
                 android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="22sp"/>
 
             <!--调用方法只能输入手机号码-->
             <EditText
@@ -216,12 +201,66 @@
                 android:background="@color/white"
                 android:hint="无"
                 android:singleLine="true"
-                android:textSize="24sp"/>
+                android:textSize="22sp"/>
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
+
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            style="@style/w_m_h_m"
+            android:layout_below="@+id/linearLayout5_inputWorkload"
+            android:orientation="vertical"
+            android:padding="10px">
+            <Button
+                android:id="@+id/print_button_inputWorkload"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/btn_shape_inputworkload"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="打印"
+                android:textColor="@color/floralwhite"
+                android:textSize="22sp"/>
+            <Button
+                android:id="@+id/cancel_button_inputWorkload"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/btn_shape_inputworkload"
+                android:gravity="center_vertical|center_horizontal"
+                android:text="取消"
+                android:textColor="@color/floralwhite"
+                android:textSize="22sp"/>
+
+        </com.fengjie.percentlibrary.PercentLinearLayout>
+
+        <!--加载的先后顺序决定了是否会被之间的view掩盖-->
+        <com.arlib.floatingsearchview.FloatingSearchView android:id="@+id/searchTea_view_inputWorkload"
+                                                         style="@style/w_m_h_f"
+                                                         android:layout_below="@+id/linearLayout1_inputWorkload"
+                                                         android:layout_toRightOf="@+id/linearLayout2_inputWorkload"
+                                                         app:floatingSearch_close_search_on_keyboard_dismiss="false"
+                                                         app:floatingSearch_dimBackground="false"
+                                                         app:floatingSearch_dismissOnOutsideTouch="true"
+                                                         app:floatingSearch_leftActionMode="showHamburger"
+                                                         app:floatingSearch_searchHint="请输入编号--5种"
+                                                         app:floatingSearch_showSearchKey="true"
+                                                         app:floatingSearch_suggestionsListAnimDuration="200"/>
+
+        <com.arlib.floatingsearchview.FloatingSearchView android:id="@+id/searchName_view_inputWorkload"
+                                                         style="@style/w_m_h_f"
+                                                         android:layout_width="match_parent"
+                                                         android:layout_alignParentTop="true"
+                                                         android:layout_toEndOf="@+id/linearLayout2_inputWorkload"
+                                                         android:layout_toRightOf="@+id/linearLayout2_inputWorkload"
+                                                         app:floatingSearch_close_search_on_keyboard_dismiss="false"
+                                                         app:floatingSearch_dimBackground="false"
+                                                         app:floatingSearch_dismissOnOutsideTouch="true"
+                                                         app:floatingSearch_leftActionMode="showHamburger"
+                                                         app:floatingSearch_searchHint="请输入编号--200个"
+                                                         app:floatingSearch_showSearchKey="true"
+                                                         app:floatingSearch_suggestionsListAnimDuration="200"/>
+
+    </com.fengjie.percentlibrary.PercentRelativeLayout>
 
 
-    </LinearLayout>
-
-
-</RelativeLayout>
+</com.fengjie.percentlibrary.PercentLinearLayout>

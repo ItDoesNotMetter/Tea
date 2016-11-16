@@ -7,18 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.fengjie.model.R;
+import com.fengjie.percentlibrary.PercentLinearLayout;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
 
 import java.util.List;
 
-public class Menu extends LinearLayout
+public class Menu extends PercentLinearLayout
 {
 
 	public final static boolean HIDE = false;

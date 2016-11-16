@@ -20,21 +20,21 @@
             style="@style/line_linearLayout_common">
 
             <ImageView
-                android:layout_width="35sp"
-                android:layout_height="35sp"
+                android:layout_width="35px"
+                android:layout_height="35px"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
-                android:layout_marginTop="2sp"
+                android:layout_marginLeft="5px"
+                android:layout_marginTop="2px"
                 android:src="@mipmap/iv_name"/>
 
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:gravity="center_vertical"
                 android:text="姓名:"
                 android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="30px"/>
 
             <EditText
                 android:id="@+id/name_EditText_addWorker"
@@ -42,26 +42,26 @@
                 android:background="@color/white"
                 android:hint="填写姓名"
                 android:singleLine="true"
-                android:textSize="24sp"/>
+                android:textSize="30px"/>
 
         </LinearLayout>
 
         <LinearLayout
             style="@style/line_linearLayout_common">
             <ImageView
-                android:layout_width="35sp"
-                android:layout_height="35sp"
+                android:layout_width="35px"
+                android:layout_height="35px"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:src="@mipmap/iv_number"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:gravity="center_vertical"
                 android:text="性别:"
                 android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="30px"/>
             <RadioGroup
                 style="@style/w_w_h_m"
                 android:checkedButton="@+id/man_radioButton_addWorker"
@@ -70,15 +70,15 @@
                 <RadioButton
                     android:id="@+id/man_radioButton_addWorker"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dip"
+                    android:layout_height="100dip"
                     android:text="男"
-                    android:textSize="24sp"/>
+                    android:textSize="30px"/>
                 <RadioButton
                     android:id="@+id/woMan_radioButton_addWorker"
                     android:layout_width="wrap_content"
-                    android:layout_height="50dip"
+                    android:layout_height="100dip"
                     android:text="女"
-                    android:textSize="24sp"/>
+                    android:textSize="30px"/>
             </RadioGroup>
 
 
@@ -88,19 +88,19 @@
         <LinearLayout
             style="@style/line_linearLayout_common">
             <ImageView
-                android:layout_width="35sp"
-                android:layout_height="35sp"
+                android:layout_width="35px"
+                android:layout_height="35px"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:src="@mipmap/iv_unitprice"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:gravity="center_vertical"
                 android:text="手机号:"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="30px"
             />
 
             <!--调用方法只能输入手机号码-->
@@ -112,26 +112,26 @@
                 android:maxLength="11"
                 android:phoneNumber="true"
                 android:singleLine="true"
-                android:textSize="20sp"/>
+                android:textSize="20px"/>
 
         </LinearLayout>
 
         <LinearLayout
             style="@style/line_linearLayout_common">
             <ImageView
-                android:layout_width="35sp"
-                android:layout_height="35sp"
+                android:layout_width="35px"
+                android:layout_height="35px"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:src="@mipmap/iv_settledate"/>
             <TextView
                 style="@style/w_w_h_w"
                 android:layout_gravity="center"
-                android:layout_marginLeft="5sp"
+                android:layout_marginLeft="5px"
                 android:gravity="center_vertical"
                 android:text="身份证号:"
                 android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="30px"/>
 
             <!--调用方法只能输入手机号码-->
             <EditText
@@ -142,7 +142,7 @@
                 android:hint="填写号码"
                 android:maxLength="18"
                 android:singleLine="true"
-                android:textSize="18sp"/>
+                android:textSize="18px"/>
 
         </LinearLayout>
 
@@ -154,27 +154,27 @@
         style="@style/w_m_h_m"
         android:layout_below="@+id/linearLayout1_addWorker"
         android:orientation="vertical"
-        android:padding="10sp">
+        android:padding="10px">
         <Button
             android:id="@+id/submit_button_addWorker"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
-            android:layout_marginTop="35sp"
-            android:layout_marginBottom="20sp"
+            android:layout_height="100px"
+            android:layout_marginTop="35px"
+            android:layout_marginBottom="20px"
             android:background="@drawable/btn_shape_addworker"
             android:gravity="center_vertical|center_horizontal"
             android:text="保存"
             android:textColor="@color/floralwhite"
-            android:textSize="24sp"/>
+            android:textSize="30px"/>
         <Button
             android:id="@+id/cancel_button_addWorker"
             android:layout_width="match_parent"
-            android:layout_height="50sp"
+            android:layout_height="100px"
             android:background="@drawable/btn_shape_addworker"
             android:gravity="center_vertical|center_horizontal"
             android:text="取消"
             android:textColor="@color/floralwhite"
-            android:textSize="24sp"/>
+            android:textSize="30px"/>
 
     </LinearLayout>
 

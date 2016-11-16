@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.fengjie.model.R;
@@ -11,12 +12,11 @@ import com.fengjie.model.adapter.fragment.FragmentViewPagerAdapter;
 import com.fengjie.model.userdefinedview.CustomBottomButton;
 import com.fengjie.model.userdefinedview.Menu;
 import com.fengjie.model.userdefinedview.NoScrollViewPager;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddTeaActivity extends AutoLayoutActivity
+public class AddTeaActivity extends AppCompatActivity
 {
 
 	private Menu menu;

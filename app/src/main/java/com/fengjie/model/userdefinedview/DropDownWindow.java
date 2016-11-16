@@ -3,6 +3,7 @@ package com.fengjie.model.userdefinedview;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 
@@ -10,7 +11,6 @@ import com.fengjie.model.R;
 import com.fengjie.model.dbhelper.Staff.StaffInfo;
 import com.zhy.adapter.abslistview.CommonAdapter;
 import com.zhy.adapter.abslistview.ViewHolder;
-import com.zhy.autolayout.AutoLinearLayout;
 
 import java.util.List;
 
@@ -20,7 +20,7 @@ import java.util.List;
  * @attention
  */
 
-public class DropDownWindow< T > extends AutoLinearLayout
+public class DropDownWindow< T > extends LinearLayout
 {
 
 	private ListView listView;                 // popupwindow中的ListView

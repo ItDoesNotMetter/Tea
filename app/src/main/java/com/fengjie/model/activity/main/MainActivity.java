@@ -2,6 +2,7 @@ package com.fengjie.model.activity.main;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -10,7 +11,6 @@ import com.fengjie.model.activity.addTea.AddTeaActivity;
 import com.fengjie.model.activity.addWorker.AddWorkerActivity;
 import com.fengjie.model.activity.inputWorkload.InputWorkload;
 import com.fengjie.model.userdefinedview.Menu;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -20,7 +20,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AutoLayoutActivity
+public class MainActivity extends AppCompatActivity
 {
 	/** 注释框架 **/
 	@BindView ( R.id.menu_main )
@@ -56,17 +56,17 @@ public class MainActivity extends AutoLayoutActivity
 	@OnClick ( { R.id.addWorker_button_main, R.id.addTea_button_main ,R.id.inputWorkload_button_main} )
 	protected void OnClick ( View view )
 	{
-		Intent intent = new Intent();
+		Intent intent ;
 		switch ( view.getId() )
 		{
 			case R.id.addWorker_button_main:
-				intent.setClass(MainActivity.this, AddWorkerActivity.class);
+				intent = new Intent(MainActivity.this, AddWorkerActivity.class);
 				break;
 			case R.id.addTea_button_main:
-				intent.setClass(MainActivity.this, AddTeaActivity.class);
+				intent = new Intent(MainActivity.this, AddTeaActivity.class);
 				break;
 			case R.id.inputWorkload_button_main:
-				intent.setClass(MainActivity.this, InputWorkload.class);
+				intent = new Intent(MainActivity.this, InputWorkload.class);
 				break;
 			default:
 				return; //other situation exit this method , not intent.

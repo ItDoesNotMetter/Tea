@@ -2,29 +2,24 @@ package com.fengjie.model.activity.inputWorkload;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
 import com.fengjie.model.R;
-import com.fengjie.model.activity.inputWorkload.precenter.InputWorkloadPrensenter;
 import com.fengjie.model.activity.inputWorkload.view.IInputWorkloadView;
+import com.fengjie.model.dbhelper.Staff.StaffDBUtil;
 import com.fengjie.model.dbhelper.Staff.StaffInfo;
-import com.fengjie.model.dbhelper.Tea.TeaInfo;
-import com.fengjie.model.userdefinedview.CustomDialog;
-import com.fengjie.model.userdefinedview.DropDownWindow;
+import com.fengjie.model.helper.suggestion.Suggestion;
 import com.fengjie.model.userdefinedview.Menu;
-import com.zhy.autolayout.AutoLayoutActivity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * @author Created by FengJie on 2016/11/11-10:12.
@@ -32,33 +27,37 @@ import butterknife.OnClick;
  * @attention
  */
 
-public class InputWorkload extends AutoLayoutActivity implements IInputWorkloadView
+public class InputWorkload extends AppCompatActivity implements IInputWorkloadView
 {
 	/*** Widget */
-	@BindView ( R.id.name_EditText_inputWorkload )
-	protected EditText name_EditText_inputWorkload;
-	@BindView ( R.id.category_EditText_inputWorkload )
-	protected EditText category_EditText_inputWorkload;
-	@BindView ( R.id.unitPrice_EditText_inputWorkload )
-	protected EditText unitPrice_EditText_inputWorkload;
-	@BindView ( R.id.weight_EditText_inputWorkload )
-	protected EditText weight_EditText_inputWorkload;
-	@BindView ( R.id.money_EditText_inputWorkload )
-	protected EditText money_EditText_inputWorkload;
+//	@BindView ( R.id.name_EditText_inputWorkload )
+//	protected EditText name_EditText_inputWorkload;
+//	@BindView ( R.id.category_EditText_inputWorkload )
+//	protected EditText category_EditText_inputWorkload;
+//	@BindView ( R.id.unitPrice_EditText_inputWorkload )
+//	protected EditText unitPrice_EditText_inputWorkload;
+//	@BindView ( R.id.weight_EditText_inputWorkload )
+//	protected EditText weight_EditText_inputWorkload;
+//	@BindView ( R.id.money_EditText_inputWorkload )
+//	protected EditText money_EditText_inputWorkload;
 
-	private TextView name_textView_dialog_inputWorkload, category_textView_dialog_inputWorkload, unitPrice_textView_dialog_inputWorkload,
-			weight_textView_dialog_inputWorkload, money_textView_dialog_inputWorkload;
-	private Button submit_button_dialog_inputWorkload, cancel_button_dialog_inputWorkload;
-	/** userDefined*View */
+//	private TextView name_textView_dialog_inputWorkload, category_textView_dialog_inputWorkload, unitPrice_textView_dialog_inputWorkload,
+//			weight_textView_dialog_inputWorkload, money_textView_dialog_inputWorkload;
+//	private Button submit_button_dialog_inputWorkload, cancel_button_dialog_inputWorkload;
+//	/** userDefined*View */
 	@BindView ( R.id.menu_view_inputWorkload )
 	protected Menu menu;
-	private CustomDialog mCustomDialog;
-	DropDownWindow< StaffInfo > mWorkerDropDownWindow ;
-	DropDownWindow< TeaInfo > mTeaDropDownWindow;
-	/** parameter */
+	@BindView ( R.id.searchName_view_inputWorkload )
+	protected FloatingSearchView mSearchView;
+//	private CustomDialog mCustomDialog;
+//	DropDownWindow< StaffInfo > mWorkerDropDownWindow;
+//	DropDownWindow< TeaInfo > mTeaDropDownWindow;
+//	/** parameter */
+	private final String TAG = "InputWorkload";
+	private List< Suggestion > mStringList = new ArrayList<Suggestion>();
+//	/** Presenter */
+//	InputWorkloadPrensenter mPrensenter;
 
-	/** Presenter */
-	InputWorkloadPrensenter mPrensenter;
 	@Override
 	protected void onCreate ( @Nullable Bundle savedInstanceState )
 	{
@@ -66,9 +65,9 @@ public class InputWorkload extends AutoLayoutActivity implements IInputWorkloadV
 		setContentView(R.layout.activity_inputworkload);
 		ButterKnife.bind(this);
 		initMenu();
-		initDialag();
-//		initDropDownWindow();
-		mPrensenter = new InputWorkloadPrensenter(this,this);
+//		initDialag();
+		initFloatingSearchView();
+//		mPrensenter = new InputWorkloadPrensenter(this, this);
 	}
 	
 
@@ -93,126 +92,191 @@ public class InputWorkload extends AutoLayoutActivity implements IInputWorkloadV
 	/**
 	 * init dialog.
 	 **/
-	private void initDialag ()
-	{
-		mCustomDialog = new CustomDialog(this);
-		mCustomDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);    //必须在加载前出示话没有标题
-		View view = LayoutInflater.from(this).inflate(R.layout.view_dialog_inputworkload, null);
-		mCustomDialog.setContentView(view);
-		name_textView_dialog_inputWorkload = ( TextView ) view.findViewById(R.id.name_textView_dialog_inputWorkload);
-		category_textView_dialog_inputWorkload = ( TextView ) view.findViewById(R.id.category_textView_dialog_inputWorkload);
-		unitPrice_textView_dialog_inputWorkload = ( TextView ) view.findViewById(R.id.unitPrice_textView_dialog_inputWorkload);
-		weight_textView_dialog_inputWorkload = ( TextView ) view.findViewById(R.id.weight_textView_dialog_inputWorkload);
-		money_textView_dialog_inputWorkload = ( TextView ) view.findViewById(R.id.money_textView_dialog_inputWorkload);
-
-		submit_button_dialog_inputWorkload = ( Button ) view.findViewById(R.id.submit_button_dialog_inputWorkload);
-		cancel_button_dialog_inputWorkload = ( Button ) view.findViewById(R.id.cancel_button_dialog_inputWorkload);
-	}
-
-	/**
-	 * init drop down window
-	 */
-//	private void initDropDownWindow ()
+//	private void initDialag ()
 //	{
-////		List<String> list = new ArrayList<String>(Arrays.asList("fengJie","fengJie","fengJie","fengJie"));
-//		mWorkerDropDownWindow = new DropDownWindow< StaffInfo >(this,name_EditText_inputWorkload, getWindowManager().getDefaultDisplay().getWidth(),
-//				                                                    getWindowManager().getDefaultDisplay().getHeight(),new ArrayList<StaffInfo>());
-////		mTeaDropDownWindow = new DropDownWindow< String >(this,category_EditText_inputWorkload, getWindowManager().getDefaultDisplay().getWidth(), getWindowManager().getDefaultDisplay().getHeight());
-////		mWorkerDropDownWindow.updateListView(list);
-//	name_EditText_inputWorkload.addTextChangedListener(new TextWatcher()
-//	{
-//		@Override
-//		public void beforeTextChanged ( CharSequence s, int start, int count, int after )
-//		{
+//		mCustomDialog = new CustomDialog(this);
+//		mCustomDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);    //必须在加载前出示话没有标题
+//		View view = LayoutInflater.from(this).inflate(R.layout.view_dialog_inputworkload, null);
+//		mCustomDialog.setContentView(view);
+//		name_textView_dialog_inputWorkload = ( TextView ) view.findViewById(name_textView_dialog_inputWorkload);
+//		category_textView_dialog_inputWorkload = ( TextView ) view.findViewById(category_textView_dialog_inputWorkload);
+//		unitPrice_textView_dialog_inputWorkload = ( TextView ) view.findViewById(unitPrice_textView_dialog_inputWorkload);
+//		weight_textView_dialog_inputWorkload = ( TextView ) view.findViewById(weight_textView_dialog_inputWorkload);
+//		money_textView_dialog_inputWorkload = ( TextView ) view.findViewById(money_textView_dialog_inputWorkload);
 //
-//		}
-//
-//		@Override
-//		public void onTextChanged ( CharSequence s, int start, int before, int count )
-//		{
-//
-//		}
-//
-//		@Override
-//		public void afterTextChanged ( Editable s )
-//		{
-//			mPrensenter.showWorkers(s.toString());
-//		}
-//	});
+//		submit_button_dialog_inputWorkload = ( Button ) view.findViewById(submit_button_dialog_inputWorkload);
+//		cancel_button_dialog_inputWorkload = ( Button ) view.findViewById(cancel_button_dialog_inputWorkload);
 //	}
 
-
-	@OnClick ( { R.id.name_imageView_inputWorkload } )
-	public void OnClickListerner ( View view )
+	/**
+	 * init floating search view
+	 */
+	private void initFloatingSearchView ()
 	{
-		switch ( view.getId() )
-		{
-			case R.id.name_imageView_inputWorkload:
-				showOrHideWorkerInfoWindow();
-				break;
+//		final List< Suggestion > mStringList = new ArrayList< Suggestion >(new ArrayList<>(Arrays.asList(
+//				new Suggestion("green"),
+//				new Suggestion("blue"),
+//				new Suggestion("pink"),
+//				new Suggestion("purple"),
+//				new Suggestion("brown"),
+//				new Suggestion("gray"),
+//				new Suggestion("red"),
+//				new Suggestion("white"),
+//				new Suggestion("black") )));
+		StaffDBUtil staffDBUtil =StaffDBUtil.getInstance(this);
 
-			default:
-				return;
-		}
+		for(StaffInfo staffInfo : staffDBUtil.selectAllStaff())
+			mStringList.add(new Suggestion(staffInfo.getStaff_Name()));
+
+		mSearchView.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener()
+		{
+
+			@Override
+			public void onSearchTextChanged ( String oldQuery, final String newQuery )
+			{
+
+				if ( ! oldQuery.equals("") && newQuery.equals("") )
+				{
+					mSearchView.clearSuggestions();
+				} else
+				{                                /**文本不为空时监听**/
+
+					//this shows the top left circular progress
+					//you can call it where ever you want, but
+					//it makes sense to do it when loading something in
+					//the background.
+					mSearchView.showProgress();
+
+					mSearchView.swapSuggestions(mStringList);
+
+					mSearchView.hideProgress();
+
+					//simulates a query call to a data source
+					//with a new query.
+				}
+
+				Log.d(TAG, "onSearchTextChanged()" + " oldQuery:" + oldQuery + " newQuery:" + newQuery);
+			}
+		});
+
+		mSearchView.setOnSearchListener(new FloatingSearchView.OnSearchListener()
+		{
+			@Override
+			public void onSuggestionClicked ( final SearchSuggestion searchSuggestion )
+			{/**点击事件**/
+
+//			Suggestion colorSuggestion = (Suggestion) searchSuggestion;
+//			DataHelper.findColors(this, colorSuggestion.getBody(),
+//					new DataHelper.OnFindColorsListener() {
+//
+//						@Override
+//						public void onResults(List<ColorWrapper> results) {
+
+//				mSearchResultsAdapter.swapData(results);
+//						}
+//
+//					});
+				Log.d(TAG, "onSuggestionClicked()" + searchSuggestion.getBody());
+
+//			mLastQuery = searchSuggestion.getBody();
+			}
+
+			@Override
+			public void onSearchAction ( String query )
+			{
+//			mLastQuery = query;
+//
+//			DataHelper.findColors(getActivity(), query,
+//					new DataHelper.OnFindColorsListener() {
+//
+//						@Override
+//						public void onResults(List<ColorWrapper> results) {
+
+//				mSearchResultsAdapter.swapData(results);
+//						}
+//
+//					});
+				Log.d(TAG, "onSearchAction() " + query);
+			}
+		});
 	}
+
+
+//	@OnClick ( { R.id.name_imageView_inputWorkload } )
+//	public void OnClickListerner ( View view )
+//	{
+//		switch ( view.getId() )
+//		{
+//			case R.id.name_imageView_inputWorkload:
+//				showOrHideWorkerInfoWindow();
+//				break;
+//
+//			default:
+//				return;
+//		}
+//	}
 
 
 	@Override
 	public String getName ()
 	{
-		return name_EditText_inputWorkload.getText().toString();
+//		return name_EditText_inputWorkload.getText().toS
+		return null;
 	}
 
 	@Override
 	public String getCategory ()
 	{
-		return category_EditText_inputWorkload.getText().toString();
+//		return category_EditText_inputWorkload.getText().toString();
+		return null;
 	}
 
 	@Override
 	public float getUnitPrice ()
 	{
-		return Float.parseFloat(unitPrice_EditText_inputWorkload.getText().toString());
+//		return Float.parseFloat(unitPrice_EditText_inputWorkload.getText().toString());
+		return 0;
 	}
 
 	@Override
 	public float getWeight ()
 	{
-		return Float.parseFloat(weight_EditText_inputWorkload.getText().toString());
+//		return Float.parseFloat(weight_EditText_inputWorkload.getText().toString());
+		return 0;
 	}
 
 	@Override
 	public float getMoney ()
 	{
-		return Float.parseFloat(money_EditText_inputWorkload.getText().toString());
+//		return Float.parseFloat(money_EditText_inputWorkload.getText().toString());
+		return 0;
 	}
 
 	@Override
 	public void showOrHideWorkerInfoWindow ()
 	{
-		mWorkerDropDownWindow.showOrHideWindow();
+//		mWorkerDropDownWindow.showOrHideWindow();
 	}
 
 	@Override
 	public void showOrHideTeaInfoWindow ()
 	{
-		mTeaDropDownWindow.showOrHideWindow();
+//		mTeaDropDownWindow.showOrHideWindow();
 	}
 
 	@Override
 	public void showOrHideDialog ()
 	{
-		if ( mCustomDialog.isShowing() )
-		{
-			name_textView_dialog_inputWorkload.setText(getName());
-			category_textView_dialog_inputWorkload.setText(getCategory());
-			unitPrice_textView_dialog_inputWorkload.setText(getUnitPrice()+"");
-			weight_textView_dialog_inputWorkload.setText(getWeight()+"");
-			money_textView_dialog_inputWorkload.setText(getMoney()+"");
-			mCustomDialog.show();
-		}
-		else
-			mCustomDialog.dismiss();
+//		if ( mCustomDialog.isShowing() )
+//		{
+//			name_textView_dialog_inputWorkload.setText(getName());
+//			category_textView_dialog_inputWorkload.setText(getCategory());
+//			unitPrice_textView_dialog_inputWorkload.setText(getUnitPrice() + "");
+//			weight_textView_dialog_inputWorkload.setText(getWeight() + "");
+//			money_textView_dialog_inputWorkload.setText(getMoney() + "");
+//			mCustomDialog.show();
+//		} else
+//			mCustomDialog.dismiss();
 	}
 
 	@Override
@@ -230,8 +294,8 @@ public class InputWorkload extends AutoLayoutActivity implements IInputWorkloadV
 	@Override
 	public void showWorkerInfoWindow ( List< StaffInfo > staffInfoList )
 	{
-		mWorkerDropDownWindow.updateListView(staffInfoList);
-		mWorkerDropDownWindow.show();
+//		mWorkerDropDownWindow.updateListView(staffInfoList);
+//		mWorkerDropDownWindow.show();
 	}
 
 
