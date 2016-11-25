@@ -68,7 +68,7 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 		menu = ( Menu ) findViewById(R.id.menu_addWorker);
 		menu.setBackgroundResource(R.color.color_addWorkerLayout);
 		menu.setTitle_textView_menu("添加工人");
-		menu.setRightButtonVisibility(false);   //Hide right button
+		menu.setRightButtonVisibility(false);                       //Hide right button
 //		menu.setBackOnClickListener(new ButtonListener());
 	}
 
@@ -93,7 +93,6 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 		cancel_button_dialog_addWorker.setOnClickListener(new ButtonListener());
 	}
 
-
 	@OnClick ( { R.id.submit_button_addWorker, R.id.cancel_button_addWorker, R.id.back_button_menu } )
 	protected void OnClick ( View view )
 	{
@@ -115,7 +114,6 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 
 	private class ButtonListener implements View.OnClickListener
 	{
-
 		@Override
 		public void onClick ( View v )
 		{
@@ -255,6 +253,5 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	{
 		Toast.makeText(getApplicationContext(), "身份证号码填写错误,录入失败", Toast.LENGTH_SHORT).show();
 	}
-
 
 }

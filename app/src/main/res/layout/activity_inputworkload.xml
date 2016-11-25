@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.fengjie.percentlibrary.PercentLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/w_m_h_m"
+    style="@style/w_f_h_f"
     android:background="@color/gray"
     android:orientation="vertical"
     app:layout_heightPercent="100%w"
@@ -15,28 +15,28 @@
     <!--app:layout_marginTopPercent="1%w"-->
     <!--app:layout_marginBottomPercent="1%w"-->
 
-
     <com.fengjie.model.userdefinedview.Menu
         android:id="@+id/menu_view_inputWorkload"
         style="@style/w_0_h_0"
         app:layout_heightPercent="15%w"
         app:layout_widthPercent="100%w"/>
 
-
-    <com.fengjie.percentlibrary.PercentRelativeLayout style="@style/w_0_h_0"
+    <com.fengjie.percentlibrary.PercentRelativeLayout style="@style/w_f_h_f"
                                                       app:layout_heightPercent="85%w"
                                                       app:layout_widthPercent="100%w">
 
-        <com.fengjie.percentlibrary.PercentLinearLayout
-            android:id="@+id/linearLayout1_inputWorkload" android:layout_width="0dp"
-            android:layout_height="0dp"
+        <LinearLayout
+            android:id="@+id/linearLayout1_inputWorkload"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="3dp"
             android:background="@color/white"
-            android:gravity="center"
             android:orientation="horizontal"
-            app:layout_heightPercent="15%w"
             app:layout_marginLeftPercent="1%w"
-            app:layout_marginTopPercent="1%w"
-            app:layout_widthPercent="25%w">
+            app:layout_widthPercent="30%w">
+            <!--app:layout_heightPercent="15%w"-->
+
+            <!--app:layout_widthPercent="30%w">-->
 
             <ImageView
                 android:id="@+id/name_iv"
@@ -49,21 +49,20 @@
                 android:layout_gravity="center"
                 android:gravity="center_vertical"
                 android:text="姓名:" android:textColor="@color/black"
-                android:textSize="24sp"/>
+                android:textSize="22sp"/>
 
-        </com.fengjie.percentlibrary.PercentLinearLayout>
+        </LinearLayout>
 
-        <com.fengjie.percentlibrary.PercentLinearLayout
+        <LinearLayout
             android:id="@+id/linearLayout2_inputWorkload" android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="48dp"
             android:layout_below="@+id/linearLayout1_inputWorkload"
+            android:layout_marginTop="3dp"
             android:background="@color/white"
-            android:gravity="center"
             android:orientation="horizontal"
-            app:layout_heightPercent="15%w"
             app:layout_marginLeftPercent="1%w"
-            app:layout_marginTopPercent="1%w"
-            app:layout_widthPercent="25%w">
+            app:layout_widthPercent="30%w">
+
             <ImageView
                 android:id="@+id/teaCategory_iv"
                 style="@style/ic_imageView_common"
@@ -77,7 +76,8 @@
                 android:gravity="center_vertical"
                 android:text="品类:" android:textColor="@color/black"
                 android:textSize="22sp"/>
-        </com.fengjie.percentlibrary.PercentLinearLayout>
+
+        </LinearLayout>
 
         <com.fengjie.percentlibrary.PercentLinearLayout
             android:id="@+id/linearLayout3_inputWorkload" android:layout_width="match_parent"
@@ -88,6 +88,7 @@
             android:orientation="horizontal"
             app:layout_heightPercent="15%w"
             app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
             app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
@@ -113,16 +114,18 @@
                 android:singleLine="true"
                 android:textSize="22sp"/>
             <Button
+                android:id="@+id/change_button_inputWorkload"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/color_inputWorkloadLayout"
                 android:text="更改"
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                app:layout_marginRightPercent="1%w"
-                app:layout_widthPercent="15%w"/>
+                app:layout_widthPercent="16%w"
+                app:layout_marginRightPercent="1%w"/>
 
             <Button
+                android:id="@+id/save_button_inputWorkload"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/color_inputWorkloadLayout"
@@ -144,6 +147,7 @@
             android:orientation="horizontal"
             app:layout_heightPercent="15%w"
             app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
             app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
@@ -167,6 +171,7 @@
                 android:maxLength="18"
                 android:singleLine="true"
                 android:textSize="22sp"
+                android:numeric="decimal"
             />
 
         </com.fengjie.percentlibrary.PercentLinearLayout>
@@ -180,6 +185,7 @@
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_heightPercent="15%w"
+            app:layout_marginRightPercent="1%w"
             app:layout_marginLeftPercent="1%w"
             app:layout_marginTopPercent="1%w">
             <ImageView
@@ -195,48 +201,23 @@
                 android:textSize="22sp"/>
 
             <!--调用方法只能输入手机号码-->
-            <EditText
-                android:id="@+id/money_EditText_inputWorkload"
+            <TextView
+                android:id="@+id/money_textView_inputWorkload"
                 style="@style/w_m_h_m"
+                android:gravity="center_vertical"
                 android:background="@color/white"
-                android:hint="无"
                 android:singleLine="true"
-                android:textSize="22sp"/>
+                android:textSize="22sp"
+                android:text="无"/>
 
         </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <com.fengjie.percentlibrary.PercentLinearLayout
-            style="@style/w_m_h_m"
-            android:layout_below="@+id/linearLayout5_inputWorkload"
-            android:orientation="vertical"
-            android:padding="10px">
-            <Button
-                android:id="@+id/print_button_inputWorkload"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/btn_shape_inputworkload"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="打印"
-                android:textColor="@color/floralwhite"
-                android:textSize="22sp"/>
-            <Button
-                android:id="@+id/cancel_button_inputWorkload"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:background="@drawable/btn_shape_inputworkload"
-                android:gravity="center_vertical|center_horizontal"
-                android:text="取消"
-                android:textColor="@color/floralwhite"
-                android:textSize="22sp"/>
-
-        </com.fengjie.percentlibrary.PercentLinearLayout>
 
         <!--加载的先后顺序决定了是否会被之间的view掩盖-->
         <com.arlib.floatingsearchview.FloatingSearchView android:id="@+id/searchTea_view_inputWorkload"
                                                          style="@style/w_m_h_f"
                                                          android:layout_below="@+id/linearLayout1_inputWorkload"
+                                                         android:layout_marginTop="3dp"
                                                          android:layout_toRightOf="@+id/linearLayout2_inputWorkload"
                                                          app:floatingSearch_close_search_on_keyboard_dismiss="false"
                                                          app:floatingSearch_dimBackground="false"
@@ -250,6 +231,7 @@
                                                          style="@style/w_m_h_f"
                                                          android:layout_width="match_parent"
                                                          android:layout_alignParentTop="true"
+                                                         android:layout_marginTop="3dp"
                                                          android:layout_toEndOf="@+id/linearLayout2_inputWorkload"
                                                          android:layout_toRightOf="@+id/linearLayout2_inputWorkload"
                                                          app:floatingSearch_close_search_on_keyboard_dismiss="false"
@@ -262,5 +244,35 @@
 
     </com.fengjie.percentlibrary.PercentRelativeLayout>
 
+    <com.fengjie.percentlibrary.PercentLinearLayout
+        style="@style/w_m_h_m"
+        android:layout_below="@+id/linearLayout5_inputWorkload"
+        android:orientation="vertical"
+        app:layout_marginPercent="5%w">
+
+        <Button
+            android:id="@+id/print_button_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="打印"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"
+            app:layout_heightPercent="16%w"/>
+
+        <Button
+            android:id="@+id/cancel_button_inputWorkload"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/btn_shape_inputworkload"
+            android:gravity="center_vertical|center_horizontal"
+            android:text="取消"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"
+            app:layout_heightPercent="16%w"
+            app:layout_marginTopPercent="5%w"/>
+
+    </com.fengjie.percentlibrary.PercentLinearLayout>
 
 </com.fengjie.percentlibrary.PercentLinearLayout>

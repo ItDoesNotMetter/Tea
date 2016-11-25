@@ -1,21 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             style="@style/w_m_h_m">
-    <LinearLayout
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/w_m_h_m"
+    android:background="@color/gray">
+
+    <com.fengjie.percentlibrary.PercentLinearLayout
         style="@style/w_m_h_m"
         android:orientation="vertical">
-        <LinearLayout
-            android:id="@+id/linearLayout1_tjcy"
-            style="@style/w_m_h_w"
-            android:orientation="vertical">
 
-            <LinearLayout
-                style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            android:id="@+id/linearLayout1_tjcy"
+            style="@style/w_0_h_0"
+            android:orientation="vertical"
+            app:layout_heightPercent="55%w"
+            app:layout_widthPercent="100%w">
+
+            <com.fengjie.percentlibrary.PercentLinearLayout
+                style="@style/line_linearLayout_common"
+                app:layout_heightPercent="15%w"
+                app:layout_marginLeftPercent="1%w"
+                app:layout_marginRightPercent="1%w"
+                app:layout_marginTopPercent="1%w">
                 <ImageView
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5sp"
+                    style="@style/ic_imageView_common"
                     android:src="@mipmap/iv_category"/>
                 <TextView
                     style="@style/w_w_h_w"
@@ -35,16 +43,17 @@
                     android:singleLine="true"
                     android:textSize="24sp"/>
 
-            </LinearLayout>
+            </com.fengjie.percentlibrary.PercentLinearLayout>
 
 
-            <LinearLayout
-                style="@style/line_linearLayout_common">
+            <com.fengjie.percentlibrary.PercentLinearLayout
+                style="@style/line_linearLayout_common"
+                app:layout_heightPercent="15%w"
+                app:layout_marginLeftPercent="1%w"
+                app:layout_marginRightPercent="1%w"
+                app:layout_marginTopPercent="1%w">
                 <ImageView
-                    android:layout_width="35sp"
-                    android:layout_height="35sp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="5sp"
+                    style="@style/ic_imageView_common"
                     android:src="@mipmap/iv_unitprice"/>
                 <TextView
                     style="@style/w_w_h_w"
@@ -66,42 +75,42 @@
                     android:singleLine="true"
                     android:textSize="24sp"/>
 
-            </LinearLayout>
+            </com.fengjie.percentlibrary.PercentLinearLayout>
 
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <LinearLayout
+        <com.fengjie.percentlibrary.PercentLinearLayout
             android:id="@+id/linearLayout2_addWorker"
             style="@style/w_m_h_m"
-            android:layout_marginTop="20sp"
-            android:orientation="vertical"
-            android:padding="10sp">
+            android:orientation="vertical">
 
             <Button
                 android:id="@+id/submit_button_addTea"
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="0dp"
                 android:layout_marginBottom="20sp"
                 android:layout_marginTop="55sp"
                 android:background="@drawable/btn_shape_addtea"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="保存"
                 android:textColor="@color/white"
-                android:textSize="24sp"/>
+                android:textSize="24sp"
+                app:layout_heightPercent="16%w"/>
 
             <Button
                 android:id="@+id/cancel_button_addTea"
                 android:layout_width="match_parent"
-                android:layout_height="50sp"
+                android:layout_height="0dp"
                 android:background="@drawable/btn_shape_addtea"
                 android:gravity="center_vertical|center_horizontal"
                 android:text="取消"
                 android:textColor="@color/white"
-                android:textSize="24sp"/>
+                android:textSize="24sp"
+                app:layout_heightPercent="16%w"/>
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-    </LinearLayout>
+    </com.fengjie.percentlibrary.PercentLinearLayout>
 
 </FrameLayout>

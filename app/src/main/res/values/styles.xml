@@ -24,10 +24,9 @@
 
     <style name="line_linearLayout_common">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">51sp</item>
+        <item name="android:layout_height">0dp</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:background">@color/white</item>
-        <item name="android:layout_margin">5sp</item>
     </style>
 
     <!--end  addWorker configure-->

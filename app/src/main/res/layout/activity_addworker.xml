@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<com.fengjie.percentlibrary.PercentRelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/w_m_h_m"
     android:background="@color/gray">
 
@@ -8,23 +8,21 @@
         android:id="@+id/menu_addWorker"
         style="@style/w_m_h_w"/>
 
-
-    <LinearLayout
+    <com.fengjie.percentlibrary.PercentLinearLayout
         android:id="@+id/linearLayout1_addWorker"
         style="@style/w_m_h_w"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/menu_addWorker"
         android:orientation="vertical">
-        <LinearLayout
-            style="@style/line_linearLayout_common">
-
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            style="@style/line_linearLayout_common"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
-                android:layout_width="35px"
-                android:layout_height="35px"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5px"
-                android:layout_marginTop="2px"
+                style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_name"/>
 
             <TextView
@@ -34,7 +32,7 @@
                 android:gravity="center_vertical"
                 android:text="姓名:"
                 android:textColor="@color/black"
-                android:textSize="30px"/>
+                android:textSize="22sp"/>
 
             <EditText
                 android:id="@+id/name_EditText_addWorker"
@@ -42,17 +40,18 @@
                 android:background="@color/white"
                 android:hint="填写姓名"
                 android:singleLine="true"
-                android:textSize="30px"/>
+                android:textSize="22sp"/>
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            style="@style/line_linearLayout_common"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
-                android:layout_width="35px"
-                android:layout_height="35px"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5px"
+                style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_number"/>
             <TextView
                 style="@style/w_w_h_w"
@@ -61,7 +60,7 @@
                 android:gravity="center_vertical"
                 android:text="性别:"
                 android:textColor="@color/black"
-                android:textSize="30px"/>
+                android:textSize="22sp"/>
             <RadioGroup
                 style="@style/w_w_h_m"
                 android:checkedButton="@+id/man_radioButton_addWorker"
@@ -72,26 +71,27 @@
                     android:layout_width="wrap_content"
                     android:layout_height="100dip"
                     android:text="男"
-                    android:textSize="30px"/>
+                    android:textSize="22sp"/>
                 <RadioButton
                     android:id="@+id/woMan_radioButton_addWorker"
                     android:layout_width="wrap_content"
                     android:layout_height="100dip"
                     android:text="女"
-                    android:textSize="30px"/>
+                    android:textSize="22sp"/>
             </RadioGroup>
 
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
 
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            style="@style/line_linearLayout_common"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
-                android:layout_width="35px"
-                android:layout_height="35px"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5px"
+                style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_unitprice"/>
             <TextView
                 style="@style/w_w_h_w"
@@ -100,7 +100,7 @@
                 android:gravity="center_vertical"
                 android:text="手机号:"
                 android:textColor="@color/black"
-                android:textSize="30px"
+                android:textSize="22sp"
             />
 
             <!--调用方法只能输入手机号码-->
@@ -112,17 +112,18 @@
                 android:maxLength="11"
                 android:phoneNumber="true"
                 android:singleLine="true"
-                android:textSize="20px"/>
+                android:textSize="22sp"/>
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
-        <LinearLayout
-            style="@style/line_linearLayout_common">
+        <com.fengjie.percentlibrary.PercentLinearLayout
+            style="@style/line_linearLayout_common"
+            app:layout_heightPercent="15%w"
+            app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
+            app:layout_marginTopPercent="1%w">
             <ImageView
-                android:layout_width="35px"
-                android:layout_height="35px"
-                android:layout_gravity="center"
-                android:layout_marginLeft="5px"
+                style="@style/ic_imageView_common"
                 android:src="@mipmap/iv_settledate"/>
             <TextView
                 style="@style/w_w_h_w"
@@ -131,7 +132,7 @@
                 android:gravity="center_vertical"
                 android:text="身份证号:"
                 android:textColor="@color/black"
-                android:textSize="30px"/>
+                android:textSize="22sp"/>
 
             <!--调用方法只能输入手机号码-->
             <EditText
@@ -142,41 +143,47 @@
                 android:hint="填写号码"
                 android:maxLength="18"
                 android:singleLine="true"
-                android:textSize="18px"/>
+                android:textSize="22sp"/>
 
-        </LinearLayout>
+        </com.fengjie.percentlibrary.PercentLinearLayout>
 
 
-    </LinearLayout>
+    </com.fengjie.percentlibrary.PercentLinearLayout>
 
-    <LinearLayout
+    <com.fengjie.percentlibrary.PercentLinearLayout
         android:id="@+id/linearLayout2_addWorker"
         style="@style/w_m_h_m"
-        android:layout_below="@+id/linearLayout1_addWorker"
         android:orientation="vertical"
-        android:padding="10px">
+        android:layout_below="@+id/linearLayout1_addWorker"
+         android:layout_alignParentBottom="true" android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        app:layout_marginRightPercent="5%w"
+        app:layout_marginTopPercent="6%w"
+        app:layout_marginLeftPercent="5%w">
         <Button
             android:id="@+id/submit_button_addWorker"
             android:layout_width="match_parent"
-            android:layout_height="100px"
-            android:layout_marginTop="35px"
-            android:layout_marginBottom="20px"
+            android:layout_height="0dp"
+            android:layout_marginTop="0dp"
+            app:layout_heightPercent="16%w"
+            app:layout_marginBottomPercent="6%w"
             android:background="@drawable/btn_shape_addworker"
             android:gravity="center_vertical|center_horizontal"
             android:text="保存"
             android:textColor="@color/floralwhite"
-            android:textSize="30px"/>
+            android:textSize="22sp"/>
         <Button
             android:id="@+id/cancel_button_addWorker"
             android:layout_width="match_parent"
-            android:layout_height="100px"
+            android:layout_height="0dp"
+            app:layout_heightPercent="16%w"
             android:background="@drawable/btn_shape_addworker"
             android:gravity="center_vertical|center_horizontal"
             android:text="取消"
             android:textColor="@color/floralwhite"
-            android:textSize="30px"/>
+            android:textSize="22sp"/>
 
-    </LinearLayout>
+    </com.fengjie.percentlibrary.PercentLinearLayout>
 
 
-</RelativeLayout>
+</com.fengjie.percentlibrary.PercentRelativeLayout>

@@ -1,8 +1,6 @@
 package com.fengjie.model.activity.inputWorkload.view;
 
-import com.fengjie.model.dbhelper.Staff.StaffInfo;
-
-import java.util.List;
+import com.fengjie.model.activity.inputWorkload.Flag_Toast;
 
 /**
  * @author Created by FengJie on 2016/11/11-21:50.
@@ -12,7 +10,6 @@ import java.util.List;
 
 public interface IInputWorkloadView
 {
-
 	public String getName ();
 
 	public String getCategory ();
@@ -21,17 +18,12 @@ public interface IInputWorkloadView
 
 	public float getWeight ();
 
-	public float getMoney ();
-
 	public void showOrHideWorkerInfoWindow ();
 
 	public void showOrHideTeaInfoWindow ();
 
 	public void showOrHideDialog ();
 
-	public void showAddSucceed ();
+	public void showToastInView(Flag_Toast flag);
 
-	public void showAddFailed ();
-
-	public void showWorkerInfoWindow ( List< StaffInfo > staffInfoList );
 }

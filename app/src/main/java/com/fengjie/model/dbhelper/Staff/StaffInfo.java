@@ -1,5 +1,6 @@
 package com.fengjie.model.dbhelper.Staff;
 
+
 /**
  * Created by xiong on 2016/4/15.
  * 工人信息类
@@ -127,4 +128,5 @@ public class StaffInfo
     {
         this.staff_id = staff_id;
     }
+
 }
