@@ -7,4 +7,16 @@
     <string name="inputWorkloadActivity">inputWorkloadActivity</string>
     <!--end Activity名称-->
 
+
+    <!--start-print device-->
+    <string name="str_printer_state">STATE</string>
+    <string name="str_printer_printing">Printing</string>
+    <string name="str_printer_lowpower">Low power</string>
+    <string name="str_printer_nopaper">No paper</string>
+    <string name="str_printer_bufferfull">Buffer full</string>
+    <string name="str_printer_buffernull">Buffer null</string>
+    <string name="str_printer_hightemperature">High temperature</string>
+    <string name="str_bat_tip">Low battery is less than</string>
+    <!--end-print device-->
+
 </resources>

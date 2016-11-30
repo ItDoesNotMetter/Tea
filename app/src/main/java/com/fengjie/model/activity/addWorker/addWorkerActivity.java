@@ -4,20 +4,16 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fengjie.model.R;
 import com.fengjie.model.activity.addWorker.presenter.AddWorkerPresenter;
 import com.fengjie.model.activity.addWorker.view.IAddWorkerView;
 import com.fengjie.model.dbhelper.Staff.StaffInfo;
-import com.fengjie.model.userdefinedview.CustomDialog;
+import com.fengjie.model.userdefinedview.CommonDialog;
 import com.fengjie.model.userdefinedview.Menu;
 
 import butterknife.BindView;
@@ -43,9 +39,7 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	protected RadioButton man_radioButton_addWorker;
 	/** userDefined*View */
 	private Menu menu;
-	private CustomDialog mCustomDialog;
-	private TextView name_dialog_addWorker, sex_dialog_addWorker, phoneNumber_dialog_addWorker, idNumber_dialog_addWorker;
-	private Button submit_button_dialog_addWorker, cancel_button_dialog_addWorker;
+	private CommonDialog mCommonDialog;
 	/** Presenter */
 	private AddWorkerPresenter presenter;
 
@@ -77,20 +71,16 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	 **/
 	private void initDialag ()
 	{
-		mCustomDialog = new CustomDialog(this);
-		mCustomDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);    //必须在加载前出示话没有标题
-		View view = LayoutInflater.from(this).inflate(R.layout.view_dialog_addworker, null);
-		mCustomDialog.setContentView(view);
-		name_dialog_addWorker = ( TextView ) view.findViewById(R.id.name_textView_dialog_addWorker);
-		sex_dialog_addWorker = ( TextView ) view.findViewById(R.id.sex_textView_dialog_addWorker);
-		phoneNumber_dialog_addWorker = ( TextView ) view.findViewById(R.id.phoneNumber_textView_dialog_addWorker);
-		idNumber_dialog_addWorker = ( TextView ) view.findViewById(R.id.idNumber_textView_dialog_addWorker);
+		mCommonDialog = new CommonDialog(this, R.layout.view_dialog_addworker);
+		mCommonDialog.initCommonDialog("请确认信息", "保存", new DialogInterface.OnClickListener()
+		{
+			@Override
+			public void onClick ( DialogInterface dialog, int which )
+			{
+				presenter.addWorker(new StaffInfo(getName(), getSex(), getPhoneNumber(), getIdNumber()));
+			}
+		});
 
-		submit_button_dialog_addWorker = ( Button ) view.findViewById(R.id.submit_button_dialog_addWorker);
-		cancel_button_dialog_addWorker = ( Button ) view.findViewById(R.id.cancel_button_dialog_addWorker);
-
-		submit_button_dialog_addWorker.setOnClickListener(new ButtonListener());
-		cancel_button_dialog_addWorker.setOnClickListener(new ButtonListener());
 	}
 
 	@OnClick ( { R.id.submit_button_addWorker, R.id.cancel_button_addWorker, R.id.back_button_menu } )
@@ -112,24 +102,6 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 		}
 	}
 
-	private class ButtonListener implements View.OnClickListener
-	{
-		@Override
-		public void onClick ( View v )
-		{
-			switch ( v.getId() )
-			{
-				case R.id.submit_button_dialog_addWorker:
-					presenter.addWorker(new StaffInfo(getName(), getSex(), getPhoneNumber(), getIdNumber()));
-					break;
-				case R.id.cancel_button_dialog_addWorker:
-					cloneCustomDialog();
-					break;
-				default:
-					break;
-			}
-		}
-	}
 
 	@Override
 	public String getName ()
@@ -160,11 +132,15 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	{
 		if ( flag )
 		{
-			name_dialog_addWorker.setText(getName());
-			sex_dialog_addWorker.setText(getSex());
-			phoneNumber_dialog_addWorker.setText(getPhoneNumber());
-			idNumber_dialog_addWorker.setText(getIdNumber());
-			mCustomDialog.show();
+//			name_dialog_addWorker.setText(getName());
+//			sex_dialog_addWorker.setText(getSex());
+//			phoneNumber_dialog_addWorker.setText(getPhoneNumber());
+//			idNumber_dialog_addWorker.setText(getIdNumber());
+			mCommonDialog.setText(R.id.name_textView_dialog_addWorker, getName());
+			mCommonDialog.setText(R.id.sex_textView_dialog_addWorker, getSex());
+			mCommonDialog.setText(R.id.phoneNumber_textView_dialog_addWorker, getPhoneNumber());
+			mCommonDialog.setText(R.id.idNumber_textView_dialog_addWorker, getIdNumber());
+			mCommonDialog.show();
 		}
 
 	}
@@ -172,7 +148,7 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	@Override
 	public void cloneCustomDialog ()
 	{
-		mCustomDialog.dismiss();
+		mCommonDialog.dismiss();
 	}
 
 	@Override

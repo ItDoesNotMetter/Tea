@@ -13,18 +13,13 @@
             android:src="@mipmap/iv_name"/>
 
         <TextView
-            style="@style/w_w_h_w"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
+            style="@style/dialogTitle_textView_common"
             android:text="姓  名:"
-            android:textSize="25sp"/>
+        />
 
         <TextView
             android:id="@+id/name_textView_dialog_addWorker"
-            style="@style/w_m_h_m"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:textSize="25sp"/>
+            style="@style/dialogValue_textView_common"/>
     </LinearLayout>
 
 
@@ -36,19 +31,12 @@
             style="@style/ic_imageView_common"
             android:src="@mipmap/iv_number"/>
         <TextView
-            style="@style/w_w_h_w"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="性  别:"
-            android:textSize="25sp"/>
+            style="@style/dialogTitle_textView_common"
+            android:text="性  别:"/>
         <TextView
             android:id="@+id/sex_textView_dialog_addWorker"
-            style="@style/w_w_h_w"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:textSize="25sp"/>
+            style="@style/dialogValue_textView_common"/>
     </LinearLayout>
-
 
 
     <LinearLayout
@@ -60,17 +48,13 @@
             style="@style/ic_imageView_common"
             android:src="@mipmap/iv_unitprice"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="手机号:"
-            android:textSize="25sp"/>
+            style="@style/dialogTitle_textView_common"
+            android:text="手机号:"/>
         <TextView
             android:id="@+id/phoneNumber_textView_dialog_addWorker"
             style="@style/w_m_h_m"
             android:layout_marginLeft="5dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:textSize="15sp"/>
     </LinearLayout>
 
@@ -84,47 +68,44 @@
             android:src="@mipmap/iv_settledate"/>
 
         <TextView
-            style="@style/w_w_h_w"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:text="身份证号:"
-            android:textSize="25sp"/>
+            style="@style/dialogTitle_textView_common"
+            android:text="身份证号:"/>
 
         <TextView
             android:id="@+id/idNumber_textView_dialog_addWorker"
             style="@style/w_m_h_m"
             android:layout_marginLeft="5dp"
-            android:gravity="center"
+            android:gravity="center_horizontal"
             android:textSize="15sp"/>
 
     </LinearLayout>
 
 
-    <LinearLayout
-        style="@style/w_m_h_w"
-        android:layout_margin="5sp"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+    <!--style="@style/w_m_h_w"-->
+    <!--android:layout_margin="5sp"-->
+    <!--android:orientation="horizontal">-->
 
-        <Button
-            android:id="@+id/submit_button_dialog_addWorker"
-            style="@style/w_m_h_m"
-            android:layout_marginRight="5sp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_shape_addworker"
-            android:text="保存"
-            android:textColor="@color/floralwhite"
-            android:textSize="22sp"/>
+    <!--<Button-->
+    <!--android:id="@+id/submit_button_dialog_addWorker"-->
+    <!--style="@style/w_m_h_m"-->
+    <!--android:layout_marginRight="5sp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@drawable/btn_shape_addworker"-->
+    <!--android:text="保存"-->
+    <!--android:textColor="@color/floralwhite"-->
+    <!--android:textSize="22sp"/>-->
 
-        <Button
-            android:id="@+id/cancel_button_dialog_addWorker"
-            style="@style/w_m_h_m"
-            android:layout_marginLeft="5sp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_shape_addworker"
-            android:text="取消"
-            android:textColor="@color/floralwhite"
-            android:textSize="22sp"/>
+    <!--<Button-->
+    <!--android:id="@+id/cancel_button_dialog_addWorker"-->
+    <!--style="@style/w_m_h_m"-->
+    <!--android:layout_marginLeft="5sp"-->
+    <!--android:layout_weight="1"-->
+    <!--android:background="@drawable/btn_shape_addworker"-->
+    <!--android:text="取消"-->
+    <!--android:textColor="@color/floralwhite"-->
+    <!--android:textSize="22sp"/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 </LinearLayout>

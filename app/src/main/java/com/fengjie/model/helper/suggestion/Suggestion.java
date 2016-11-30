@@ -14,13 +14,13 @@ public class Suggestion implements SearchSuggestion
 {
 
 	private String mString;
-	private int id;
+//	private int id;
 	private boolean mIsHistory = false;
 
-	public Suggestion (final String suggestion ,final int id )
+	public Suggestion (final String suggestion  )
 	{
 		this.mString = suggestion.toLowerCase();
-		this.id = id;
+//		this.id = id;
 	}
 
 	public Suggestion ( Parcel source )
@@ -55,10 +55,10 @@ public class Suggestion implements SearchSuggestion
 		return this.mIsHistory;
 	}
 
-	public int getId ()
-	{
-		return id;
-	}
+//	public int getId ()
+//	{
+//		return id;
+//	}
 
 	@Override
 	public String getBody ()

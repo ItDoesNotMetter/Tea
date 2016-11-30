@@ -33,7 +33,7 @@
             android:background="@color/white"
             android:orientation="horizontal"
             app:layout_marginLeftPercent="1%w"
-            app:layout_widthPercent="30%w">
+            app:layout_widthPercent="26%w">
             <!--app:layout_heightPercent="15%w"-->
 
             <!--app:layout_widthPercent="30%w">-->
@@ -45,8 +45,8 @@
 
             <TextView
                 android:id="@+id/name_tx"
-                style="@style/w_w_h_w"
-                android:layout_gravity="center"
+                style="@style/w_w_h_m"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:text="姓名:" android:textColor="@color/black"
                 android:textSize="22sp"/>
@@ -61,7 +61,7 @@
             android:background="@color/white"
             android:orientation="horizontal"
             app:layout_marginLeftPercent="1%w"
-            app:layout_widthPercent="30%w">
+            app:layout_widthPercent="26%w">
 
             <ImageView
                 android:id="@+id/teaCategory_iv"
@@ -70,9 +70,8 @@
 
             <TextView
                 android:id="@+id/teaCategory_tv"
-                style="@style/w_w_h_w"
-                android:layout_gravity="center"
-                android:layout_marginLeft="0dp"
+                style="@style/w_w_h_m"
+                android:layout_gravity="center_horizontal"
                 android:gravity="center_vertical"
                 android:text="品类:" android:textColor="@color/black"
                 android:textSize="22sp"/>
@@ -121,8 +120,8 @@
                 android:text="更改"
                 android:textColor="@color/white"
                 android:textSize="22sp"
-                app:layout_widthPercent="16%w"
-                app:layout_marginRightPercent="1%w"/>
+                app:layout_marginRightPercent="1%w"
+                app:layout_widthPercent="16%w"/>
 
             <Button
                 android:id="@+id/save_button_inputWorkload"
@@ -169,9 +168,9 @@
                 android:background="@color/white"
                 android:hint="无"
                 android:maxLength="18"
+                android:numeric="decimal"
                 android:singleLine="true"
                 android:textSize="22sp"
-                android:numeric="decimal"
             />
 
         </com.fengjie.percentlibrary.PercentLinearLayout>
@@ -185,8 +184,8 @@
             android:gravity="center"
             android:orientation="horizontal"
             app:layout_heightPercent="15%w"
-            app:layout_marginRightPercent="1%w"
             app:layout_marginLeftPercent="1%w"
+            app:layout_marginRightPercent="1%w"
             app:layout_marginTopPercent="1%w">
             <ImageView
                 style="@style/ic_imageView_common"
@@ -204,11 +203,11 @@
             <TextView
                 android:id="@+id/money_textView_inputWorkload"
                 style="@style/w_m_h_m"
-                android:gravity="center_vertical"
                 android:background="@color/white"
+                android:gravity="center_vertical"
                 android:singleLine="true"
-                android:textSize="22sp"
-                android:text="无"/>
+                android:text="无"
+                android:textSize="22sp"/>
 
         </com.fengjie.percentlibrary.PercentLinearLayout>
 

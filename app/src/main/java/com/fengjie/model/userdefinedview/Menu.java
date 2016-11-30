@@ -31,7 +31,6 @@ public class Menu extends PercentLinearLayout
 	private ListView listView;                 // popupwindow中的ListView
 	private int NUM_OF_VISIBLE_LIST_ROWS;     // 指定popupwindow中Item的数量
 	private View layout;
-//    private RelativeLayout relativeLayout_menu;
 
 	public Menu ( Context context, AttributeSet attrs )
 	{
@@ -74,7 +73,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * Right button no popupWindow,only have OnClickListener.
-	 *
 	 * @param string          get title string object.
 	 * @param onClickListener right button onClickListener.
 	 */
@@ -90,7 +88,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * init title and ListView's OnItemClickListener.
-	 *
 	 * @param string              get title string object.
 	 * @param groups              get ListView's string list.
 	 * @param onItemClickListener
@@ -133,7 +130,6 @@ public class Menu extends PercentLinearLayout
 	private void initPopupWindow ()
 	{
 
-
 		mPopupWindow = new PopupWindow(layout);
 //        mPopupWindow = new PopupWindow();
 
@@ -169,7 +165,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 赋入OnclickListener 实例化接口,对Back点击事件进行重载
-	 *
 	 * @param onClickListener
 	 */
 	public void setBackOnClickListener ( OnClickListener onClickListener )
@@ -179,7 +174,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 构建item点击事件
-	 *
 	 * @param onItemClickListener
 	 */
 	public void setOnItemClickListener ( AdapterView.OnItemClickListener onItemClickListener )
@@ -189,7 +183,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 变更标题方法
-	 *
 	 * @param title
 	 */
 	public void setTitle_textView_menu ( String title )
@@ -199,7 +192,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 更改字体大小
-	 *
 	 * @param textSize
 	 */
 	public void setTitleSize_textView_menu ( float textSize )
@@ -209,7 +201,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 更改字体颜色方法
-	 *
 	 * @param textColor
 	 */
 	public void setTitleColor_textView_menu ( int textColor )
@@ -219,7 +210,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 更换右边按钮的图片
-	 *
 	 * @param ID
 	 */
 	public void setRightButtonBackground ( int ID )
@@ -235,7 +225,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 隐藏Menu-操作Button方法
-	 *
 	 * @param flag 为真则显示,反之隐藏
 	 */
 	public void setLeftButtonVisibility ( boolean flag )
@@ -250,7 +239,6 @@ public class Menu extends PercentLinearLayout
 
 	/**
 	 * 重载操作按钮监听事件
-	 *
 	 * @param newOnClickListener 赋入新监听事件的方法
 	 */
 	public void setRightButtonOnClickListener ( View.OnClickListener newOnClickListener )

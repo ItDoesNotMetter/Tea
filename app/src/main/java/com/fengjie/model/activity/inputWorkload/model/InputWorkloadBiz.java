@@ -3,7 +3,7 @@ package com.fengjie.model.activity.inputWorkload.model;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.fengjie.model.activity.inputWorkload.Flag_Toast;
+import com.fengjie.model.activity.inputWorkload.Flag;
 import com.fengjie.model.dbhelper.PickTea.PickTeaDBUtil;
 import com.fengjie.model.dbhelper.PickTea.PickTeaInfo;
 import com.fengjie.model.dbhelper.Staff.StaffDBUtil;
@@ -13,7 +13,6 @@ import com.fengjie.model.dbhelper.Tea.TeaInfo;
 import com.fengjie.model.helper.Other.TimeHelper;
 import com.fengjie.model.helper.characterParser.CharacterParser;
 import com.fengjie.model.helper.suggestion.Suggestion;
-import com.fengjie.model.helper.suggestion.TeaSuggestion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,7 +43,7 @@ public class InputWorkloadBiz
 		mStaffInfoList = staffDBUtil.selectAllStaff();
 		mTeaInfoList = teaDBUtil.seleteAllTea();
 	}
-	
+
 	/**
 	 * use view transmit string.
 	 *
@@ -58,7 +57,7 @@ public class InputWorkloadBiz
 		if ( filterStr.equals("") || TextUtils.isEmpty(filterStr) )
 		{   //判断是否为空
 			for ( StaffInfo info : mStaffInfoList )
-				filterDateList.add(new Suggestion(info.getStaff_Name(), info.getStaff_id()));
+				filterDateList.add(new Suggestion(info.getStaff_Name()));
 		} else
 		{
 			filterDateList.clear();             //清除数据
@@ -66,21 +65,21 @@ public class InputWorkloadBiz
 			{      //遍历数据
 				if ( info.getStaff_Name().indexOf(filterStr) != - 1 || mCharacterParser.getSelling(info.getStaff_Name()).startsWith(filterStr) )
 				{
-					filterDateList.add(new Suggestion(info.getStaff_Name(), info.getStaff_id()));
+					filterDateList.add(new Suggestion(info.getStaff_Name()));
 				}
 			}
 		}
 		return filterDateList;
 	}
 	
-	public List< TeaSuggestion > filterTea ( String filterStr )
+	public List< Suggestion > filterTea ( String filterStr )
 	{
-		List< TeaSuggestion > filterDateList = new ArrayList< TeaSuggestion >();
+		List< Suggestion > filterDateList = new ArrayList< Suggestion >();
 //		if ( TextUtils.isEmpty(filterStr) )
 		if ( filterStr.equals("") || TextUtils.isEmpty(filterStr) )
 		{   //判断是否为空
 			for ( TeaInfo info : mTeaInfoList )
-				filterDateList.add(new TeaSuggestion(info.getTea_Category(), info.getTea_Id(), info.getTea_Price()));
+				filterDateList.add(new Suggestion(info.getTea_Category()));
 		} else
 		{
 			filterDateList.clear();             //清除数据
@@ -88,19 +87,39 @@ public class InputWorkloadBiz
 			{      //遍历数据
 				if ( info.getTea_Category().indexOf(filterStr) != - 1 || mCharacterParser.getSelling(info.getTea_Category()).startsWith(filterStr) )
 				{
-					filterDateList.add(new TeaSuggestion(info.getTea_Category(), info.getTea_Id(), info.getTea_Price()));
+					filterDateList.add(new Suggestion(info.getTea_Category()));
 				}
 			}
 		}
 		return filterDateList;
 	}
-	
+
+	public float isExistTea ( String tea )
+	{
+		for ( TeaInfo info : mTeaInfoList )
+			if(info.getTea_Category().equals(tea))
+				return info.getTea_Price();
+		return 0.0f;
+	}
+
+	public boolean isExistName(String name)
+	{
+		for ( StaffInfo info : mStaffInfoList )
+			if(info.getStaff_Name().equals(name))
+				return true;
+		return false;
+	}
+
 	public boolean updateTeaUnitPrice ( String teaCategory, float unitPrice )
 	{
 		return teaDBUtil.updateTeaUseCategory(new TeaInfo(teaCategory, unitPrice)) > 0;//? true : false
 	}
 	
-	
+	public void updateTeaUnitPrice ()
+	{
+		mTeaInfoList = teaDBUtil.seleteAllTea();
+	}
+
 	/**
 	 * give category and unitPrice update tea's unitPrice
 	 *
@@ -114,14 +133,14 @@ public class InputWorkloadBiz
 		return teaDBUtil.updateTeaUseCategory(teaInfo);
 	}
 	
-	public Flag_Toast printAndSaveData ( final String name, final String tea, final float uintPrice, final float weight )
+	public Flag printAndSaveData ( final String name, final String tea, final float uintPrice, final float weight )
 	{
 		int uid = 0, tid = 0;
 		String time = TimeHelper.getCurrentDateTime();
 		if ( uintPrice == 0.0f )
-			return Flag_Toast.UNIT_PRICE_CANNOT_ZERO;
+			return Flag.UNIT_PRICE_CANNOT_ZERO;
 		else if ( weight == 0.0f )
-			return Flag_Toast.WEIGHT_CANNOT_ZERO;
+			return Flag.WEIGHT_CANNOT_ZERO;
 		/**start-checkout worker name*/
 		for ( StaffInfo staffInfo : mStaffInfoList )
 			if ( staffInfo.getStaff_Name().equals(name) )
@@ -129,7 +148,7 @@ public class InputWorkloadBiz
 				uid = staffInfo.getStaff_id();
 				break;
 			}
-		if ( uid == 0 ) return Flag_Toast.WORKER_NOT_EXIST;
+		if ( uid == 0 ) return Flag.WORKER_NOT_EXIST;
 		/**end-checkout worker name*/
 		
 		/**start-checkout tea name*/
@@ -139,7 +158,7 @@ public class InputWorkloadBiz
 				tid = teaInfo.getTea_Id();
 				break;
 			}
-		if ( tid == 0 ) return Flag_Toast.TEA_NOT_EXIST;
+		if ( tid == 0 ) return Flag.CATEGORY_NOT_EXIST;
 		/**end-checkout tea name*/
 		
 		
@@ -149,7 +168,7 @@ public class InputWorkloadBiz
 								               time.substring(5, 7) + time.substring(8, 10) + time.substring(11, 13) +
 								               time.substring(14, 16) + time.substring(17, 19) + changeValue(weight * uintPrice),
 						               weight * uintPrice)
-		) > 0 ? Flag_Toast.ADD_WORKLOAD_SUCCEED : Flag_Toast.ADD_WORKLOAD_FAILED;
+		) > 0 ? Flag.ADD_WORKLOAD_SUCCEED : Flag.ADD_WORKLOAD_FAILED;
 	}
 	
 	public List< StaffInfo > getStaffInfoList ()

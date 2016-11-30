@@ -1,6 +1,6 @@
 package com.fengjie.model.activity.inputWorkload.view;
 
-import com.fengjie.model.activity.inputWorkload.Flag_Toast;
+import com.fengjie.model.activity.inputWorkload.Flag;
 
 /**
  * @author Created by FengJie on 2016/11/11-21:50.
@@ -24,6 +24,6 @@ public interface IInputWorkloadView
 
 	public void showOrHideDialog ();
 
-	public void showToastInView(Flag_Toast flag);
+	public void showToastInView(Flag flag);
 
 }
