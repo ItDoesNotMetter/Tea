@@ -1,8 +1,14 @@
 package com.fengjie.model.activity.inputWorkload.model;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.Toast;
 
+import com.fengjie.model.R;
 import com.fengjie.model.activity.inputWorkload.Flag;
 import com.fengjie.model.dbhelper.PickTea.PickTeaDBUtil;
 import com.fengjie.model.dbhelper.PickTea.PickTeaInfo;
@@ -12,10 +18,16 @@ import com.fengjie.model.dbhelper.Tea.TeaDBUtil;
 import com.fengjie.model.dbhelper.Tea.TeaInfo;
 import com.fengjie.model.helper.Other.TimeHelper;
 import com.fengjie.model.helper.characterParser.CharacterParser;
+import com.fengjie.model.helper.printer.PrintService;
+import com.fengjie.model.helper.printer.PrinterClass;
+import com.fengjie.model.helper.printer.PrinterClassSerialPort;
 import com.fengjie.model.helper.suggestion.Suggestion;
+import com.fengjie.model.utils.MyToast;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.fengjie.model.activity.inputWorkload.Flag.PRINT_FIALD;
 
 /**
  * @author Created by FengJie on 2016/11/12-9:29.
@@ -31,10 +43,16 @@ public class InputWorkloadBiz
 	private List< StaffInfo > mStaffInfoList = new ArrayList< StaffInfo >();
 	private List< TeaInfo > mTeaInfoList = new ArrayList< TeaInfo >();
 	private CharacterParser mCharacterParser;
+
+	/** parameter **/
+	private Context mContext;
+	private Flag IS_PRINTER_EXIST = Flag.PRINTER_EXIST;     //
+	private static PrinterClassSerialPort printerClass = null;          //PrinterClassSerialPort
 	
 	public InputWorkloadBiz ( Context context )
 	{
 		/**get Instance**/
+		mContext = context ;
 		staffDBUtil = StaffDBUtil.getInstance(context);
 		teaDBUtil = TeaDBUtil.getInstance(context);
 		pickTeaDBUtil = PickTeaDBUtil.getInstance(context);
@@ -50,7 +68,7 @@ public class InputWorkloadBiz
 	 * @param filterStr get view's input string.
 	 * @return
 	 */
-	public List< Suggestion > filterWorker ( String filterStr )
+	public List< Suggestion > getFilterWorker ( String filterStr )
 	{
 		List< Suggestion > filterDateList = new ArrayList< Suggestion >();
 //		if ( TextUtils.isEmpty(filterStr) )
@@ -72,7 +90,7 @@ public class InputWorkloadBiz
 		return filterDateList;
 	}
 	
-	public List< Suggestion > filterTea ( String filterStr )
+	public List< Suggestion > getFilterTea ( String filterStr )
 	{
 		List< Suggestion > filterDateList = new ArrayList< Suggestion >();
 //		if ( TextUtils.isEmpty(filterStr) )
@@ -92,6 +110,22 @@ public class InputWorkloadBiz
 			}
 		}
 		return filterDateList;
+	}
+
+	/**
+	 * @return all worker number.
+	 */
+	public int getWorkerSize()
+	{
+		return staffDBUtil.selectAllStaff().size();
+	}
+
+	/**
+	 * @return all tea number.
+	 */
+	public int getTeaSize()
+	{
+		return teaDBUtil.seleteAllTea().size();
 	}
 
 	public float isExistTea ( String tea )
@@ -133,7 +167,7 @@ public class InputWorkloadBiz
 		return teaDBUtil.updateTeaUseCategory(teaInfo);
 	}
 	
-	public Flag printAndSaveData ( final String name, final String tea, final float uintPrice, final float weight )
+	public Flag printAndSaveData ( final String name, final String tea, final float uintPrice, final float weight , Bitmap bitmap)
 	{
 		int uid = 0, tid = 0;
 		String time = TimeHelper.getCurrentDateTime();
@@ -161,7 +195,15 @@ public class InputWorkloadBiz
 		if ( tid == 0 ) return Flag.CATEGORY_NOT_EXIST;
 		/**end-checkout tea name*/
 		
-		
+		try{
+			printerClass.printImage(bitmap);
+		} catch( Exception e )
+		{
+			e.printStackTrace();
+			Log.d("Debug", "printAndSaveData: Fail Print");
+			return PRINT_FIALD;
+		}
+
 		return pickTeaDBUtil.insertPickTeaInfo(
 				new PickTeaInfo(uid, tid, time, weight, uintPrice,
 						               String.valueOf(uid) + String.valueOf(tid) + changeValue(weight) +
@@ -169,6 +211,131 @@ public class InputWorkloadBiz
 								               time.substring(14, 16) + time.substring(17, 19) + changeValue(weight * uintPrice),
 						               weight * uintPrice)
 		) > 0 ? Flag.ADD_WORKLOAD_SUCCEED : Flag.ADD_WORKLOAD_FAILED;
+	}
+
+	/**
+	 * Use Handle init Print Device.
+	 */
+	public Flag openPrinter ()
+	{
+
+		try
+		{
+			Handler mhandler = new Handler()
+			{
+				public void handleMessage ( Message msg )
+				{
+					switch ( msg.what )
+					{
+						case PrinterClass.MESSAGE_READ:
+							byte[] readBuf = ( byte[] ) msg.obj;
+//							Log.i(TAG, "readBuf:" + readBuf[0]);
+							if ( readBuf[0] == 0x13 )
+							{
+								// PrintService.isFUll = true;
+								// ShowMsg(mContext.getResources().getString(R.string.str_printer_state)+":"+mContext.getResources().getString(R.string.str_printer_bufferfull));
+							} else if ( readBuf[0] == 0x11 )
+							{
+								// PrintService.isFUll = false;
+								// ShowMsg(mContext.getResources().getString(R.string.str_printer_state)+":"+mContext.getResources().getString(R.string.str_printer_buffernull));
+							} else if ( readBuf[0] == 0x08 )
+							{
+								MyToast.showLong(mContext,mContext.getResources().getString(
+										R.string.str_printer_state)
+										                 + ":"
+										                 + mContext.getResources().getString(
+										R.string.str_printer_nopaper));
+							} else if ( readBuf[0] == 0x01 )
+							{
+								// ShowMsg(mContext.getResources().getString(R.string.str_printer_state)+":"+mContext.getResources().getString(R.string.str_printer_printing));
+							} else if ( readBuf[0] == 0x04 )
+							{
+								MyToast.showLong(mContext,mContext.getResources().getString(
+										R.string.str_printer_state)
+										                          + ":"
+										                          + mContext.getResources().getString(
+										R.string.str_printer_hightemperature));
+							} else if ( readBuf[0] == 0x02 )
+							{
+								MyToast.showLong(mContext,mContext.getResources().getString(
+										R.string.str_printer_state)
+										                          + ":"
+										                          + mContext.getResources().getString(
+										R.string.str_printer_lowpower));
+							} else
+							{
+								String readMessage = new String(readBuf, 0, msg.arg1);
+								if ( readMessage.contains("800") )// 80mm paper
+								{
+									PrintService.imageWidth = 72;
+									Toast.makeText(mContext, "80mm",
+											Toast.LENGTH_SHORT).show();
+								} else if ( readMessage.contains("580") )// 58mm paper
+								{
+									PrintService.imageWidth = 48;
+									Toast.makeText(mContext, "58mm",
+											Toast.LENGTH_SHORT).show();
+								} else
+								{
+
+								}
+							}
+							break;
+						case PrinterClass.MESSAGE_STATE_CHANGE:// 6��l��״
+							switch ( msg.arg1 )
+							{
+								case PrinterClass.STATE_CONNECTED:// �Ѿ�l��
+									break;
+								case PrinterClass.STATE_CONNECTING:// ����l��
+									Toast.makeText(mContext,
+											"STATE_CONNECTING", Toast.LENGTH_SHORT).show();
+									break;
+								case PrinterClass.STATE_LISTEN:
+								case PrinterClass.STATE_NONE:
+									break;
+								case PrinterClass.SUCCESS_CONNECT:
+									printerClass.write(new byte[]{ 0x1b, 0x2b });// ����ӡ���ͺ�
+									Toast.makeText(mContext,
+											"SUCCESS_CONNECT", Toast.LENGTH_SHORT).show();
+									break;
+								case PrinterClass.FAILED_CONNECT:
+									Toast.makeText(mContext,
+											"FAILED_CONNECT", Toast.LENGTH_SHORT).show();
+
+									break;
+								case PrinterClass.LOSE_CONNECT:
+									Toast.makeText(mContext, "LOSE_CONNECT",
+											Toast.LENGTH_SHORT).show();
+							}
+							break;
+						case PrinterClass.MESSAGE_WRITE:
+
+							break;
+					}
+					super.handleMessage(msg);
+				}
+			};
+
+			printerClass = new PrinterClassSerialPort(mhandler);
+			printerClass.open(mContext);
+		return Flag.PRINTER_EXIST;
+//			mView.showToastInView(Flag.PRINTER_EXIST);
+		} catch( UnsatisfiedLinkError e )
+		{
+			e.printStackTrace();
+			IS_PRINTER_EXIST = Flag.PRINTER_NOT_EXIST;
+			return Flag.PRINTER_NOT_EXIST;
+//			mView.showToastInView(Flag.PRINTER_NOT_EXIST);
+		}
+
+	}
+	/**
+	 * close Printer , prevent internal storage  let out .
+	 */
+	public void closePrinter ()
+	{
+		if ( IS_PRINTER_EXIST == Flag.PRINTER_EXIST )
+			printerClass.close(mContext);
 	}
 	
 	public List< StaffInfo > getStaffInfoList ()
@@ -202,4 +369,6 @@ public class InputWorkloadBiz
 				return ( temp + "" ).substring(0, 4);
 		}
 	}
+
+
 }

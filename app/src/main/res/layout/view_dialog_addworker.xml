@@ -81,31 +81,33 @@
     </LinearLayout>
 
 
-    <!--<LinearLayout-->
-    <!--style="@style/w_m_h_w"-->
-    <!--android:layout_margin="5sp"-->
-    <!--android:orientation="horizontal">-->
+    <LinearLayout
+        style="@style/w_m_h_w"
+        android:layout_margin="5sp"
+        android:orientation="horizontal">
 
-    <!--<Button-->
-    <!--android:id="@+id/submit_button_dialog_addWorker"-->
-    <!--style="@style/w_m_h_m"-->
-    <!--android:layout_marginRight="5sp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:background="@drawable/btn_shape_addworker"-->
-    <!--android:text="保存"-->
-    <!--android:textColor="@color/floralwhite"-->
-    <!--android:textSize="22sp"/>-->
+        <Button
+            android:id="@+id/cancel_button_dialog_addWorker"
+            style="@style/w_m_h_m"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_addworker"
+            android:text="取消"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"/>
 
-    <!--<Button-->
-    <!--android:id="@+id/cancel_button_dialog_addWorker"-->
-    <!--style="@style/w_m_h_m"-->
-    <!--android:layout_marginLeft="5sp"-->
-    <!--android:layout_weight="1"-->
-    <!--android:background="@drawable/btn_shape_addworker"-->
-    <!--android:text="取消"-->
-    <!--android:textColor="@color/floralwhite"-->
-    <!--android:textSize="22sp"/>-->
+        <Button
+            android:id="@+id/submit_button_dialog_addWorker"
+            style="@style/w_m_h_m"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_addworker"
+            android:text="保存"
+            android:textColor="@color/floralwhite"
+            android:textSize="22sp"/>
 
-    <!--</LinearLayout>-->
+    </LinearLayout>
 
 </LinearLayout>

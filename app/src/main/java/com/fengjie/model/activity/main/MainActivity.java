@@ -22,7 +22,7 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity
 {
-	/** 注释框架 **/
+	/** user defined view. **/
 	@BindView ( R.id.menu_main )
 	protected Menu menu_main;
 

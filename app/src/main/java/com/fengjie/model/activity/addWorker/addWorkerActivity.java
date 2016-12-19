@@ -72,12 +72,21 @@ public class AddWorkerActivity extends AppCompatActivity implements IAddWorkerVi
 	private void initDialag ()
 	{
 		mCommonDialog = new CommonDialog(this, R.layout.view_dialog_addworker);
-		mCommonDialog.initCommonDialog("请确认信息", "保存", new DialogInterface.OnClickListener()
+		mCommonDialog.setButtonListener(R.id.submit_button_dialog_addWorker, new View.OnClickListener()
 		{
 			@Override
-			public void onClick ( DialogInterface dialog, int which )
+			public void onClick ( View v )
 			{
 				presenter.addWorker(new StaffInfo(getName(), getSex(), getPhoneNumber(), getIdNumber()));
+				mCommonDialog.dismiss();
+			}
+		});
+		mCommonDialog.setButtonListener(R.id.cancel_button_dialog_addWorker, new View.OnClickListener()
+		{
+			@Override
+			public void onClick ( View v )
+			{
+				mCommonDialog.dismiss();
 			}
 		});
 

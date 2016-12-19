@@ -1,5 +1,6 @@
 package com.fengjie.model.activity.inputWorkload;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -34,10 +35,8 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 	/*** Widget */
 	@BindView ( R.id.unitPrice_EditText_inputWorkload )
 	protected EditText unitPrice_EditText_inputWorkload;
-
 	@BindView ( R.id.weight_EditText_inputWorkload )
 	protected EditText weight_EditText_inputWorkload;
-
 	@BindView ( R.id.money_textView_inputWorkload )
 	protected TextView money_textView_inputWorkload;
 	/** userDefined View */
@@ -52,7 +51,7 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 	private final String TAG = "InputWorkload";
 	private String mName = "", mTeaCategory = "";       //return to presenter parameter.
 	/** Presenter */
-	InputWorkloadPresenter mPresenter;
+	private InputWorkloadPresenter mPresenter;
 
 	@Override
 	protected void onCreate ( @Nullable Bundle savedInstanceState )
@@ -60,10 +59,11 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_inputworkload);
 		ButterKnife.bind(this);
+		mPresenter = new InputWorkloadPresenter(this, this);
+		mPresenter.openPrinter();
 		initMenu();
 		initDialag();
 		initFloatingSearchView();
-		mPresenter = new InputWorkloadPresenter(this, this);
 	}
 
 	@Override
@@ -100,7 +100,7 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 		}
 	}
 
-	//  @OnTextChanged(value = R.id.weight_EditText_inputWorkload, callback = OnTextChanged.Callback.BEFORE_TEXT_CHANGED)
+//  @OnTextChanged(value = R.id.weight_EditText_inputWorkload, callback = OnTextChanged.Callback.BEFORE_TEXT_CHANGED)
 //	void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 //	@OnTextChanged(value = R.id.weight_EditText_inputWorkload, callback = OnTextChanged.Callback.TEXT_CHANGED)
 //	void onTextChanged(CharSequence s, int start, int before, int count) {}
@@ -151,14 +151,17 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 				mCommonDialog.dismiss();
 			}
 		});
-
 	}
+
+
 
 	/**
 	 * init floating search view
 	 */
 	private void initFloatingSearchView ()
 	{
+		searchName_view_inputWorkload.setSearchHint("请输入编号-"+mPresenter.getWorkerSize()+"个工人");   //set hint
+
 		/**text input Listener.*/
 		searchName_view_inputWorkload.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener()
 		{
@@ -206,6 +209,7 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 
 		/*** Separate ***/
 
+		searchTea_view_inputWorkload.setSearchHint("请输入编号-"+mPresenter.getTeaSize()+"种品类");   //set hint
 		/**text input Listener.*/
 		searchTea_view_inputWorkload.setOnQueryChangeListener(new FloatingSearchView.OnQueryChangeListener()
 		{
@@ -279,7 +283,20 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 	}
 
 
-	/** View - Interface */
+	/****** View - Interface ******/
+
+	/**
+	 * get all view change to Bitmap object
+	 * @return Bitmap object.
+	 */
+	@Override
+	public Bitmap getBitMapDialog()
+	{
+		View view = mCommonDialog.findViewById(R.id.allView_dialog_inputWorkload);
+		view.setDrawingCacheEnabled(true);
+		return (Bitmap) view.getDrawingCache();
+	}
+
 	@Override
 	public String getName ()
 	{
@@ -304,6 +321,7 @@ public class InputWorkload extends AppCompatActivity implements IInputWorkloadVi
 		return Float.parseFloat(weight_EditText_inputWorkload.getText().toString().equals("") ? "0" : weight_EditText_inputWorkload.getText().toString());
 	}
 
+	/**show in view method**/
 	@Override
 	public void showOrHideWorkerInfoWindow ()
 	{

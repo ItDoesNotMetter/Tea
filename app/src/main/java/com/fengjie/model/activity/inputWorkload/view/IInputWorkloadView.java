@@ -1,5 +1,7 @@
 package com.fengjie.model.activity.inputWorkload.view;
 
+import android.graphics.Bitmap;
+
 import com.fengjie.model.activity.inputWorkload.Flag;
 
 /**
@@ -17,6 +19,8 @@ public interface IInputWorkloadView
 	public float getUnitPrice ();
 
 	public float getWeight ();
+
+	public Bitmap getBitMapDialog();
 
 	public void showOrHideWorkerInfoWindow ();
 

@@ -65,6 +65,29 @@ public class CommonDialog extends android.support.v7.app.AlertDialog
 	}
 
 	/**
+	 *
+	 *
+	 * @param title
+	 */
+	public void initCommonDialog ( final String title, final String message ,final String rightButtonContent,final DialogInterface.OnClickListener onClickListener)
+	{
+
+		super.setTitle(title);
+		super.setMessage(message);
+		/**默认退出按钮为退出*/
+		super.setButton(DialogInterface.BUTTON_POSITIVE, rightButtonContent, onClickListener);
+
+		super.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", new OnClickListener()
+		{
+			@Override
+			public void onClick ( DialogInterface dialog, int which )
+			{
+				dismiss();
+			}
+		});
+	}
+
+	/**
 	 * No title and have right button of dialog
 	 *
 	 * @param rightButtonContent

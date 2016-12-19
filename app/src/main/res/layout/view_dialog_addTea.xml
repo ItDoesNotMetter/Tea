@@ -61,6 +61,8 @@
         <Button
             android:id="@+id/submit_button_dialog_tjcy"
             style="@style/w_m_h_m"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:text="保存"
             android:textSize="22sp"
@@ -71,6 +73,8 @@
         <Button
             android:id="@+id/cancel_button_dialog_tjcy"
             style="@style/w_m_h_m"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:textSize="22sp"
             android:text="取消"
